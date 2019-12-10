@@ -3,9 +3,9 @@ import { logout } from '../../actions/session_actions';
 import NavBar from './nav_bar';
 
 const msp = state => {
-  if (!state.session.currentUser) return {};
+  if (!state.session.currentUserId) return {};
   return {
-    user: state.entities.users[state.session.currentUser.id]
+    user: state.entities.users[state.session.currentUserId]
   }
 }
 

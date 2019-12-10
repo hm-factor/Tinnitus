@@ -11,7 +11,7 @@ const receiveCurrentUser = user => {
   }
 }
 
-const logoutCurrentUser = user => {
+const logoutCurrentUser = () => {
   return {
     type: LOGOUT_CURRENT_USER
   }
@@ -29,9 +29,9 @@ export const login = user => dispatch => {
     .then( user => dispatch(receiveCurrentUser(user)));
 }
 
-export const logout = user => dispatch => {
-  return util.logout(user)
-    .then( () => dispatch(logoutCurrentUser(user)));
+export const logout = () => dispatch => {
+  return util.logout()
+    .then( () => dispatch(logoutCurrentUser()));
 }
 
 export const signup = user => dispatch => {

@@ -6,7 +6,7 @@ import {
   Route } from 'react-router-dom';
 
 const msp = state => {
-  return { logged_in: Boolean(state.session.currentUser) };
+  return { logged_in: Boolean(state.session.currentUserId) };
 };
 
 const Auth = ({ component: Component, path, logged_in}) => (
