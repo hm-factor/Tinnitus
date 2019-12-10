@@ -3,13 +3,13 @@ import {
   LOGOUT_CURRENT_USER
 } from '../actions/session_actions';
 
-let _nullState = { id: null}
+let _nullState = { currentUser: null}
 
 const sessionReducer = (state = _nullState, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      return Object.assign({}, state, {id: action.user.id});
+      return Object.assign({}, state, {currentUser: action.user});
     case LOGOUT_CURRENT_USER:
       return Object.assign({}, state, _nullState);
     default:

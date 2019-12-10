@@ -38,3 +38,4 @@ export const signup = user => dispatch => {
   return util.signup(user)
     .then( user => dispatch(receiveCurrentUser(user)))
 }
+
