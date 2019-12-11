@@ -12,18 +12,28 @@ class NavBar extends React.Component {
 
     if (user) {
       return (
-        <div>
-          { user.username }
+        <div className="nav-prof">
+          <div className='nav-user'>{user.username}</div>
           <button onClick={logout}>LOGOUT</button>
         </div>
-      )
+      );
     } else {
-      return(
-        <div>
-          <Link to='/signup'>SIGN UP</Link>
-          <Link to='/login'>LOG IN</Link>
+      return (
+        <div className="nav-links">
+          <div className="arrows">
+            <span className="A1">A1</span>
+            <span className="A2">A2</span>
+          </div>
+          <div className="nav-forms">
+            <div className="nav-sign">
+              <Link to="/signup">SIGN UP</Link>
+            </div>
+            <div className="nav-log">
+              <Link to="/login">LOG IN</Link>
+          </div>
+          </div>
         </div>
-      )
+      );
     }
   }
 }
