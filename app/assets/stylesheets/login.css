@@ -1,15 +1,130 @@
-.signup-form {
-  width: auto;
-  height: 100%;
-}
-
-.signup-form > h1 {
-  font-size: 30px;
+.signup-page {
+  width: 100%;
+  height: 100%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-family: Helvetica;
 }
 
-.signup-form > p {
+.signup-page > .title {
+  padding: 40px;
+  width: 100%;
+  border-bottom: solid 1px black;
+  background-color: grey;
+  display: flex;
+  justify-content: center;
+}
+
+.signup-page > h3 {
+  margin: 12px;
+  font-size: 16px;
+}
+
+.title > h1 {
+  color: white;
+  font-size: 30px;
+  width: fit-content;
+}
+
+.signup-form {
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup-form > ul > li {
+  list-style-type: none;
   font-size: 12px;
+  padding: 14px;
+  background-color: orange;
+  width: 420px;
+  color: white;
+  text-align: center;
+  margin: 30px;
+}
+
+input {
+  width: 450px;
+  height: 35px;
+  outline: none;
+  border: solid 1px lightgrey;
+  transition: border 0.3s ease 0s;
+}
+
+input:focus {
+  outline: none;
+  border: solid 1px #040404;
+}
+
+.sign-user, .sign-pw {
+  padding: 5px;
+}
+
+::placeholder {
+  color: rgb(211,211,211);
+  padding: 12px 6px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.btn-demo, .btn-login, .btn-signup {
+  margin: 10px;
+}
+
+.btn-demo > button {
+  background-color: teal;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  width: 450px;
+  height: 50px;
+  border-radius: 50px;
+  outline: none;
+  color: white;
+}
+
+.btn-login > button {
+  background-color: black;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  width: 200px;
+  height: 50px;
+  border-radius: 50px;
+  outline: none;
+  color: white;
+}
+
+.btn-signup {
+  background-color: white;
+  border: solid 3px black;
+  text-align: center;
+  width: 450px;
+  height: 50px;
+  border-radius: 50px;
+  outline: none;
+}
+
+.to-signup {
+  text-decoration: none;
   color: grey;
+  text-align: center;
+}
+
+.signup-page > p {
+  font-size: 12px;
+  color: lightgrey;
   width: 50%;
 }
+
+.divider {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+

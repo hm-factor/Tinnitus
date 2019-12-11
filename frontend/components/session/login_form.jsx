@@ -1,40 +1,59 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { NavLink } from "react-router-dom";
 
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
-      password: ''
-    }
+      username: "",
+      password: ""
+    };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
   }
 
   handleSubmit(e) {
-    this.props.login(this.state)
+    this.props.login(this.state);
   }
 
   update(field) {
-    return (e) => {
-      this.setState({ [field]: e.target.value })
+    return e => {
+      this.setState({ [field]: e.target.value });
+    };
+  }
+
+  handleDemoSubmit(e) {
+    const demoUser = {
+      username: "Demo",
+      password: "demodemo"
     }
+
+    this.props.login(demoUser);
   }
 
   render() {
-
     return (
-      <div className="signup-form">
-        <h1>tinnitus</h1>
-        <form onSubmit={this.handleSubmit}>
-          <h3>To continue, log in to Tinnitus.</h3>
+      <div className="signup-page">
+        <div className="title">
+          <h1>tinnitus</h1>
+        </div>
+        <h3>To continue, log in to Tinnitus.</h3>
+        <div className="btn-demo">
+          <button className="guest-btn" onClick={this.handleDemoSubmit}>
+            LOG IN AS GUEST
+          </button>
+        </div>
+
+        <hr className="divider" />
+
+        <form className="signup-form" onSubmit={this.handleSubmit}>
           <ul>
             {this.props.errors.map((error, i) => {
               return <li key={i}>{error}</li>;
             })}
           </ul>
-          <label className="sign-user">
+          <div className="sign-user">
             <input
               type="text"
               placeholder="username"
@@ -42,8 +61,8 @@ class LoginForm extends React.Component {
               onChange={this.update("username")}
               placeholder="Username"
             />
-          </label>
-          <label className="sign-pw">
+          </div>
+          <div className="sign-pw">
             <input
               type="password"
               value={this.state.password}
@@ -51,11 +70,20 @@ class LoginForm extends React.Component {
               onChange={this.update("password")}
               placeholder="Password"
             />
-          </label>
-          <button type="submit">LOG IN</button>
+          </div>
+          <div className="btn-login">
+            <button type="submit">LOG IN</button>
+          </div>
         </form>
+
+        <div className="divider"></div>
+
         <h3>Don't have an account?</h3>
-        <Link to="/signup">SIGN UP FOR SPOTIFY</Link>
+
+        <div className='btn-signup'>
+          <NavLink className="to-signup" to="/signup">SIGN UP FOR SPOTIFY</NavLink>
+        </div>
+
         <p>
           If you click "Log in with Facebook" and are not a Spotify user,
           nothing will happen because that button doesn't exist.
