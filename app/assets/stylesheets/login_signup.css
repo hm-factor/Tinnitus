@@ -1,4 +1,4 @@
-.signup-page {
+.signup-page, .login-page {
   width: 100%;
   height: 100%; 
   display: flex;
@@ -7,7 +7,8 @@
   font-family: Helvetica;
 }
 
-.signup-page > .title {
+.signup-page > .title, 
+.login-page > .title {
   padding: 40px;
   width: 100%;
   border-bottom: solid 1px black;
@@ -16,7 +17,8 @@
   justify-content: center;
 }
 
-.signup-page > h3 {
+.login-page > h3,
+.signup-form > h3 {
   margin: 12px;
   font-size: 16px;
 }
@@ -27,6 +29,7 @@
   width: fit-content;
 }
 
+.login-form,
 .signup-form {
   width: 450px;
   display: flex;
@@ -34,6 +37,7 @@
   align-items: center;
 }
 
+.login-form > ul > li,
 .signup-form > ul > li {
   list-style-type: none;
   font-size: 12px;
@@ -45,9 +49,20 @@
   margin: 30px;
 }
 
-input {
+.log-user > input,
+.log-pw > input {
   width: 450px;
   height: 35px;
+  outline: none;
+  border: solid 1px lightgrey;
+  transition: border 0.3s ease 0s;
+}
+
+.sign-user > input,
+.sign-pw > input,
+.sign-email > input {
+  width: 450px;
+  height: 45px;
   outline: none;
   border: solid 1px lightgrey;
   transition: border 0.3s ease 0s;
@@ -58,18 +73,19 @@ input:focus {
   border: solid 1px #040404;
 }
 
-.sign-user, .sign-pw {
+.log-user, .log-pw, .sign-email, 
+.sign-pw, .sign-user {
   padding: 5px;
 }
 
 ::placeholder {
-  color: rgb(211,211,211);
+  color: darkgrey;
   padding: 12px 6px;
   font-size: 12px;
   font-weight: 500;
 }
 
-.btn-demo, .btn-login, .btn-signup {
+.btn-demo, .btn-login, .btn-to-signup {
   margin: 10px;
 }
 
@@ -85,7 +101,8 @@ input:focus {
   color: white;
 }
 
-.btn-login > button {
+.btn-login > button,
+.btn-signup > button {
   background-color: black;
   border: none;
   text-align: center;
@@ -97,7 +114,8 @@ input:focus {
   color: white;
 }
 
-.btn-signup {
+.btn-to-signup,
+.btn-to-login {
   background-color: white;
   border: solid 3px black;
   text-align: center;
@@ -107,24 +125,44 @@ input:focus {
   outline: none;
 }
 
-.to-signup {
+.to-signup,
+.to-login {
   text-decoration: none;
   color: grey;
-  text-align: center;
 }
 
-.signup-page > p {
+.login-page > p {
   font-size: 12px;
   color: lightgrey;
   width: 50%;
 }
 
-.divider {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
+.birthday {
+  width: 450px;
+  display: flex;
+  align-items: unset;
+  justify-content: space-evenly;
 }
 
+.birthday > .month > select {
+  min-width: 190px;
+}
+
+.birthday > .day > input {
+  min-width: 85px;
+}
+
+.birthday > .year > input {
+  min-width: 100px;
+}
+
+.radio-gender {
+  display: flex;
+}
+
+select {
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;       /* Remove default arrow */
+   background-image: url(...);   /* Add custom arrow */
+}

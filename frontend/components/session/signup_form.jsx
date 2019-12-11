@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -42,67 +42,87 @@ class SignupForm extends React.Component {
   render () {
   
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div className="signup-page">
+        <div className="title">
+          <h1>tinnitus</h1>
+        </div>
+        <form className="signup-form" onSubmit={this.handleSubmit}>
+          <h3>Sign up with your email address</h3>
           <ul>
             {this.props.errors.map((error, i) => {
               return <li key={i}>{error}</li>;
             })}
           </ul>
-          <input
-            type="email"
-            placeholder="Email"
-            value={this.state.email}
-            onChange={this.update("email")}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={this.state.password}
-            onChange={this.update("password")}
-          />
-          <input
-            type="text"
-            placeholder="What should we call you?"
-            value={this.state.username}
-            onChange={this.update("username")}
-          />
+
+          <div className="sign-email">
+            <input
+              type="email"
+              placeholder="Email"
+              value={this.state.email}
+              onChange={this.update("email")}
+            />
+          </div>
+
+          <div className="sign-pw">
+            <input
+              type="password"
+              placeholder="Password"
+              value={this.state.password}
+              onChange={this.update("password")}
+            />
+          </div>
+          <div className="sign-user">
+            <input
+              type="text"
+              placeholder="What should we call you?"
+              value={this.state.username}
+              onChange={this.update("username")}
+            />
+          </div>
+
           <label>
-            Date of Birth
-            <div>
-              <select value={this.state.month} onChange={this.update("month")}>
-                <option value="" disabled hidden>
-                  Month
-                </option>
-                <option value="01">January</option>
-                <option value="02">February</option>
-                <option value="03">March</option>
-                <option value="04">April</option>
-                <option value="05">May</option>
-                <option value="06">June</option>
-                <option value="07">July</option>
-                <option value="08">August</option>
-                <option value="09">September</option>
-                <option value="10">October</option>
-                <option value="11">November</option>
-                <option value="12">December</option>
-              </select>
-              <input
-                type="number"
-                value={this.state.day}
-                placeholder="Day"
-                onChange={this.update("day")}
-              />
-              <input
-                type="number"
-                value={this.state.year}
-                placeholder="Year"
-                onChange={this.update("year")}
-              />
+            Date of birth
+            <div className="birthday">
+              <div className="month">
+                <select
+                  value={this.state.month}
+                  onChange={this.update("month")}
+                >
+                  <option value="">Month</option>
+                  <option value="01">January</option>
+                  <option value="02">February</option>
+                  <option value="03">March</option>
+                  <option value="04">April</option>
+                  <option value="05">May</option>
+                  <option value="06">June</option>
+                  <option value="07">July</option>
+                  <option value="08">August</option>
+                  <option value="09">September</option>
+                  <option value="10">October</option>
+                  <option value="11">November</option>
+                  <option value="12">December</option>
+                </select>
+              </div>
+              <div className="day">
+                <input
+                  type="number"
+                  value={this.state.day}
+                  placeholder="Day"
+                  onChange={this.update("day")}
+                />
+              </div>
+              <div className="year">
+                <input
+                  type="number"
+                  value={this.state.year}
+                  placeholder="Year"
+                  onChange={this.update("year")}
+                />
+              </div>
             </div>
           </label>
 
-          <div>
+          <div className="radio-gender">
             <label>
               <input
                 type="radio"
@@ -134,10 +154,16 @@ class SignupForm extends React.Component {
               Non-binary
             </label>
           </div>
-          <button type="submit">SIGN UP</button>
+          <div className="btn-signup">
+            <button type="submit">SIGN UP</button>
+          </div>
         </form>
-        Already have an account?
-        <Link to="/login">Log in</Link>
+        <h3>Already have an account?</h3>
+        <div className="btn-to-login">
+          <NavLink className="to-login" to="/login">
+            Log in
+          </NavLink>
+        </div>
       </div>
     );
   }

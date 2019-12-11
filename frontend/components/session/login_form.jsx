@@ -34,7 +34,7 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div className="signup-page">
+      <div className="login-page">
         <div className="title">
           <h1>tinnitus</h1>
         </div>
@@ -53,7 +53,7 @@ class LoginForm extends React.Component {
               return <li key={i}>{error}</li>;
             })}
           </ul>
-          <div className="sign-user">
+          <div className="log-user">
             <input
               type="text"
               placeholder="username"
@@ -62,7 +62,7 @@ class LoginForm extends React.Component {
               placeholder="Username"
             />
           </div>
-          <div className="sign-pw">
+          <div className="log-pw">
             <input
               type="password"
               value={this.state.password}
@@ -80,7 +80,7 @@ class LoginForm extends React.Component {
 
         <h3>Don't have an account?</h3>
 
-        <div className='btn-signup'>
+        <div className='btn-to-signup'>
           <NavLink className="to-signup" to="/signup">SIGN UP FOR SPOTIFY</NavLink>
         </div>
 
