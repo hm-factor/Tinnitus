@@ -42,8 +42,13 @@ class SignupForm extends React.Component {
   render () {
   
     return (
-    <div>
+      <div>
         <form onSubmit={this.handleSubmit}>
+          <ul>
+            {this.props.errors.map((error, i) => {
+              return <li key={i}>{error}</li>;
+            })}
+          </ul>
           <input
             type="email"
             placeholder="Email"
@@ -65,10 +70,10 @@ class SignupForm extends React.Component {
           <label>
             Date of Birth
             <div>
-              <select
-                value={this.state.month}
-                onChange={this.update("month")}>
-                <option value="" disabled hidden>Month</option>
+              <select value={this.state.month} onChange={this.update("month")}>
+                <option value="" disabled hidden>
+                  Month
+                </option>
                 <option value="01">January</option>
                 <option value="02">February</option>
                 <option value="03">March</option>
@@ -86,12 +91,14 @@ class SignupForm extends React.Component {
                 type="number"
                 value={this.state.day}
                 placeholder="Day"
-                onChange={this.update("day")}/>
+                onChange={this.update("day")}
+              />
               <input
                 type="number"
                 value={this.state.year}
                 placeholder="Year"
-                onChange={this.update("year")}/>
+                onChange={this.update("year")}
+              />
             </div>
           </label>
 

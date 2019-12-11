@@ -26,7 +26,9 @@ const receiveErrors = errors => {
 
 export const login = user => dispatch => {
   return util.login(user)
-    .then( user => dispatch(receiveCurrentUser(user)));
+    .then( user => dispatch(receiveCurrentUser(user)),
+      errors => dispatch(receiveErrors(errors.responseJSON))
+    );
 }
 
 export const logout = () => dispatch => {
@@ -36,6 +38,8 @@ export const logout = () => dispatch => {
 
 export const signup = user => dispatch => {
   return util.signup(user)
-    .then( user => dispatch(receiveCurrentUser(user)))
+    .then(user => dispatch(receiveCurrentUser(user)),
+      errors => dispatch(receiveErrors(errors.responseJSON))
+    );
 }
 

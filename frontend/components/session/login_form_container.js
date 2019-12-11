@@ -4,7 +4,7 @@ import { login } from '../../actions/session_actions';
 
 const msp = state => {
   return {
-    errors: state.errors
+    errors: Object.values(state.errors)
   }
 }
 
