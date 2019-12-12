@@ -238,6 +238,8 @@ input::-webkit-inner-spin-button {
 .radio-gender {
   margin: 15px;
   display: flex;
+  align-self: flex-start;
+  margin-left: 0;
 }
 
 .radio-gender > label {
@@ -251,7 +253,7 @@ input::-webkit-inner-spin-button {
 select {
    -webkit-appearance: none;
    -moz-appearance: none;
-   appearance: none;       /* Remove default arrow */
+   appearance: none;
    background-image: url(...);   /* Add custom arrow */
 }
 

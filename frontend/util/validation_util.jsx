@@ -3,7 +3,7 @@ const validateEmail = (email) => {
   return re.test(email);
 };
 
-export const renderErrorMessages = (field, value) => {
+export const renderErrorMessages = (field, value, blur) => {
   let errors = {};
 
   if (field === "email") {
@@ -16,7 +16,7 @@ export const renderErrorMessages = (field, value) => {
     }
   } 
 
-  if (field === "password") {
+  if (field === "password" ) {
     if (value.length === 0) {
       errors.password = "Enter a password to continue.";
     } else if (value.length < 8) {
@@ -26,7 +26,7 @@ export const renderErrorMessages = (field, value) => {
     }
   }
 
-  if (field === "username") {
+  if (field === "username" ) {
     if (value.length === 0) {
       errors.username = "What should we call you?";
     } else {
@@ -34,25 +34,37 @@ export const renderErrorMessages = (field, value) => {
     }
   }
   
-  if (field === "month") {
+  if (field === "month" ) {
     if (value === "") {
       errors.month = "Please enter your birth month.";
+    } else {
+      errors.month = "";
     }
   } 
   
-  if (
-    field === "day" ||
-    value > 31 ||
-    value < 1
-  ) { errors.day = "Please enter a valid day of the day."; }
+  if (field === "day") {
+    if (
+      value > 31 ||
+      value < 1) 
+    { 
+      errors.day = "Please enter a valid day of the day."; 
+    } else {
+      errors.day = "";
+    }
+  }
 
-  if (
-    field === "year" ||
-    value > 12 ||
-    value < 1
-  ) { errors.year = "Please enter a valid year."; }
+  if (field === "year") {
+    if (
+      value > 12 ||
+      value < 1
+    ) { 
+      errors.year = "Please enter a valid year."; 
+    } else {
+      errors.year = "";
+    }
+  }
 
-  if (field === "gender") {
+  if (field === "gender" ) {
     if (value.length === 0) {
       errors.gender = "Please indicate your gender."; 
     }
