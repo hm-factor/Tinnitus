@@ -1,0 +1,271 @@
+.signup-page, .login-page {
+  width: 100%;
+  height: 100%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Helvetica;
+  background-color: ivory;
+}
+
+.signup-page > .title, 
+.login-page > .title {
+  padding: 40px;
+  width: 100%;
+  border-bottom: solid 1px slategrey;
+  background-color: ivory;
+  display: flex;
+  justify-content: center;
+}
+
+.login-page > h3,
+.signup-form > h3 {
+  margin: 12px;
+  font-size: 16px;
+}
+
+.title > h1 {
+  color: darkslategrey;
+  font-size: 30px;
+  width: fit-content;
+}
+
+.login-form,
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.login-form > ul > li,
+.signup-form > ul > li {
+  list-style-type: none;
+  font-size: 12px;
+  padding: 14px;
+  background-color: orangered;
+  width: 420px;
+  color: white;
+  text-align: center;
+  margin: 30px;
+}
+
+.log-user > input,
+.log-pw > input {
+  width: 450px;
+  height: 35px;
+  border: solid 1px lightgrey;
+  transition: border 0.3s ease 0s;
+}
+
+.sign-user > input,
+.sign-pw > input,
+.sign-email > input {
+  width: 450px;
+  height: 45px;
+  border: solid 1px lightgrey;
+  transition: border 0.3s ease 0s;
+}
+
+input:focus {
+  border: solid 1px darkblue;
+}
+
+.log-user, .log-pw, .sign-email, 
+.sign-pw, .sign-user {
+  padding: 5px;
+}
+
+input {
+  padding-left: 6px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+}
+
+::placeholder {
+  color: darkgrey;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.btn-demo, .btn-login, .btn-to-signup {
+  margin: 10px;
+}
+
+.btn-demo > button {
+  background-color: darkslateblue;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  width: 450px;
+  height: 50px;
+  border-radius: 50px;
+  outline: none;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 200ms linear;
+}
+
+.btn-demo > button:hover {
+  cursor: pointer;
+  background-color: darkblue;
+}
+
+.btn-login > button,
+.btn-signup > button {
+  background-color: darkblue;
+  transition: background-color 200ms linear;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  width: 200px;
+  height: 50px;
+  border-radius: 50px;
+  outline: none;
+  color: white;
+}
+
+.btn-login > button:hover,
+.btn-signup > button:hover {
+  background-color: darkslateblue;
+  cursor: pointer;
+}
+
+.btn-to-signup {
+  background-color: white;
+  border: solid 2px slategrey;
+  cursor: pointer;
+  width: 450px;
+  height: 40px;
+  border-radius: 50px;
+  outline: none;
+}
+.btn-to-signup > h3 {
+  text-align: center;
+  color: slategrey;
+  font-size: 14px;
+  letter-spacing: 3px;
+  font-weight: 550;
+  padding: 13px;
+}
+
+.btn-to-signup:hover {
+  background-color: slategrey;
+  transition: background-color 250ms linear;
+}
+
+.btn-to-signup:hover h3 {
+  transition: color 250ms linear;
+  color: white;
+}
+
+.to-signup,
+.to-login {
+  text-decoration: none;
+  color: grey;
+}
+
+.to-login:hover {
+  color: black;
+}
+
+.has-account {
+  display: flex;
+  padding: 15px;
+}
+
+.has-account > h3,
+.to-login {
+  font-weight: 500;
+}
+
+.to-login {
+  padding: 0px 5px;
+}
+
+.login-page > p {
+  font-size: 11px;
+  color: lightgrey;
+  width: 450px;
+  background-color: ivory;
+  text-align: center;
+  line-height: normal;
+}
+
+.DoB {
+  color: grey;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 15px;
+}
+
+.birthday {
+  width: 450px;
+  display: flex;
+  align-items: unset;
+  justify-content: space-between;
+}
+
+.birthday > .month > select {
+  width: 190px;
+  height: 50px;
+  padding: 0 5px;
+  box-sizing: border-box;
+  border-radius: 0px;
+  background-color: white;
+}
+
+.birthday > .day > input {
+  width: 85px;
+  height: 50px;
+  padding: 0 5px;
+  box-sizing: border-box;
+}
+
+.birthday > .year > input {
+  width: 100px;
+  height: 50px;
+  padding: 0 5px;
+  box-sizing: border-box;
+}
+
+.radio-gender {
+  margin: 15px;
+  display: flex;
+}
+
+.radio-gender > label {
+  font-size: 15px;
+}
+
+.radio-gender input {
+  margin: 10px;
+}
+
+select {
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;       /* Remove default arrow */
+   background-image: url(...);   /* Add custom arrow */
+}
+
+.login-errors,
+.signup-errors {
+  color: red;
+  font-size: 14px;
+  padding: 10px 5px 3px 5px;
+}
+
+.divider {
+  width: 450px;
+  color: ivory;
+  border-bottom: solid 1px lightgrey;
+  margin: 15px;
+}

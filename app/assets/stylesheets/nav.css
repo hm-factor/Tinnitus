@@ -1,0 +1,43 @@
+.nav-cont {
+  /* display: flex; */
+  z-index: 2;
+  background-color: #0b0b0b;
+  height: 80px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-prof {
+
+}
+
+.arrows {
+  background-color: black;
+  color: white;
+  padding: 5px;
+  border-radius: 50px;
+  height: 20px;
+}
+
+.nav-forms {
+  display: flex;
+}
+
+.nav-sign > a {
+  text-decoration: none;
+  padding: 10px;
+  color: white;
+}
+
+.nav-log > a {
+  text-decoration: none;
+  padding: 10px 30px;
+  background-color: white;
+  border-radius: 20px;
+  color: black;
+}

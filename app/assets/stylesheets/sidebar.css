@@ -1,0 +1,18 @@
+.side-bar {
+  display: flex;
+  min-width: 230px;
+  background-color: #040404;
+  height: 100%;
+  z-index: 3;
+  box-orient: vertical;
+}
+
+.title {
+  padding: 20px;
+  width: 0 auto;
+  font-size: 24px;
+  color: white;
+  font-family: Helvetica,Arial, sans-serif;
+  color: white;
+  text-decoration: none;
+}
