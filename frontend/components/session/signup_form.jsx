@@ -192,10 +192,21 @@ class SignupForm extends React.Component {
             </label>
           </div>
 
+          <div className="divider" />
+
+          <p className="legalities">
+            By clicking on Sign up, you agree to Spotify's Terms and Conditions of Use.
+          </p>
+
+          <p className="legalities">
+            To learn more about how Spotify collects, uses, shares and protects your personal data please read Spotify's Privacy Policy.
+          </p>
+
           <div className="btn-signup">
             <button type="submit">SIGN UP</button>
           </div>
         </form>
+
         <div className="has-account">
           <h3>Already have an account?</h3>
           <NavLink className="to-login" to="/login">
