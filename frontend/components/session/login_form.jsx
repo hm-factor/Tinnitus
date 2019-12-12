@@ -33,26 +33,22 @@ class LoginForm extends React.Component {
     const demoUser = {
       username: "Demo",
       password: "demodemo"
-    }
+    };
 
     this.props.login(demoUser);
   }
 
   renderErrorMessage(field) {
     if (this.state[field].length === 0 && this.state.blurred[field]) {
-      return (
-        <div className='login-errors'>
-          Please enter your {field}.
-        </div>
-      )
+      return <div className="login-errors">Please enter your {field}.</div>;
     }
   }
 
   handleBlur(field) {
     let blurred = Object.assign({}, this.state.blurred, { [field]: true });
-    return(e) => {
+    return e => {
       this.setState({ blurred });
-    }
+    };
   }
 
   render() {

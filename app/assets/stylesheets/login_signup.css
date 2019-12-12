@@ -5,14 +5,15 @@
   flex-direction: column;
   align-items: center;
   font-family: Helvetica;
+  background-color: ivory;
 }
 
 .signup-page > .title, 
 .login-page > .title {
   padding: 40px;
   width: 100%;
-  border-bottom: solid 1px black;
-  background-color: grey;
+  border-bottom: solid 1px slategrey;
+  background-color: ivory;
   display: flex;
   justify-content: center;
 }
@@ -24,7 +25,7 @@
 }
 
 .title > h1 {
-  color: white;
+  color: darkslategrey;
   font-size: 30px;
   width: fit-content;
 }
@@ -42,7 +43,7 @@
   list-style-type: none;
   font-size: 12px;
   padding: 14px;
-  background-color: orange;
+  background-color: orangered;
   width: 420px;
   color: white;
   text-align: center;
@@ -53,7 +54,7 @@
 .log-pw > input {
   width: 450px;
   height: 35px;
-  outline: none;
+  /* outline: none; */
   border: solid 1px lightgrey;
   transition: border 0.3s ease 0s;
 }
@@ -63,14 +64,13 @@
 .sign-email > input {
   width: 450px;
   height: 45px;
-  outline: none;
+  /* outline: none; */
   border: solid 1px lightgrey;
   transition: border 0.3s ease 0s;
 }
 
 input:focus {
-  outline: none;
-  border: solid 1px #040404;
+  border: solid 1px darkblue;
 }
 
 .log-user, .log-pw, .sign-email, 
@@ -90,7 +90,7 @@ input:focus {
 }
 
 .btn-demo > button {
-  background-color: teal;
+  background-color: darkslateblue;
   border: none;
   text-align: center;
   text-decoration: none;
@@ -99,14 +99,25 @@ input:focus {
   border-radius: 50px;
   outline: none;
   color: white;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 200ms linear;
+}
+
+.btn-demo > button:hover {
+  cursor: pointer;
+  background-color: darkblue;
 }
 
 .btn-login > button,
 .btn-signup > button {
-  background-color: black;
+  background-color: darkblue;
+  transition: background-color 200ms linear;
   border: none;
   text-align: center;
   text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
   width: 200px;
   height: 50px;
   border-radius: 50px;
@@ -114,10 +125,16 @@ input:focus {
   color: white;
 }
 
+.btn-login > button:hover,
+.btn-signup > button:hover {
+  cursor: pointer;
+  background-color: darkslateblue;
+}
+
 .btn-to-signup,
 .btn-to-login {
   background-color: white;
-  border: solid 3px black;
+  border: solid 3px darkblue;
   text-align: center;
   width: 450px;
   height: 50px;
@@ -135,6 +152,14 @@ input:focus {
   font-size: 12px;
   color: lightgrey;
   width: 50%;
+  background-color: ivory;
+}
+
+.DoB {
+  color: grey;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 15px;
 }
 
 .birthday {
@@ -159,7 +184,6 @@ input:focus {
 .radio-gender {
   margin: 15px;
   display: flex;
-  vertical-align: ;
 }
 
 .radio-gender > label {
@@ -175,4 +199,11 @@ select {
    -moz-appearance: none;
    appearance: none;       /* Remove default arrow */
    background-image: url(...);   /* Add custom arrow */
+}
+
+.login-errors,
+.signup-errors {
+  color: red;
+  font-size: 14px;
+  padding: 10px 5px 3px 5px;
 }

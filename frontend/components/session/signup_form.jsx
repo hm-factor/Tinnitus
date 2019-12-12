@@ -1,5 +1,5 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import { NavLink } from "react-router-dom";
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -46,7 +46,39 @@ class SignupForm extends React.Component {
 
   renderErrorMessage(field) {
     if (this.state[field].length === 0 && this.state.blurred[field]) {
-      return <div className="signup-errors">Please enter your {field}.</div>;
+      if (field === "email") {
+        return <div className="signup-errors">Please enter your email.</div>;
+      } else if (field === "password") {
+        return (
+          <div className="signup-errors">Enter a password to continue.</div>
+        );
+      } else if (field === "username") {
+        return <div className="signup-errors">What should we call you?</div>;
+      } else if (field === "month") {
+        return (
+          <div className="signup-errors">Please enter your birth month.</div>
+        );
+      } else if (
+        field === "day" ||
+        this.state[field] > 31 ||
+        this.state[field] < 1
+      ) {
+        return (
+          <div className="signup-errors">
+            Please enter a valid day of the day.
+          </div>
+        );
+      } else if (
+        field === "year" ||
+        this.state[field] > 12 ||
+        this.state[field] < 1
+      ) {
+        return <div className="signup-errors">Please enter a valid year.</div>;
+      } else if (field === "gender") {
+        return (
+          <div className="signup-errors">Please indicate your gender.</div>
+        );
+      }
     }
   }
 
@@ -102,7 +134,7 @@ class SignupForm extends React.Component {
           </div>
 
           <div>
-            Date of birth
+            <p className="DoB">Date of birth</p>
             <div className="birthday">
               <div className="month">
                 <select
@@ -144,9 +176,9 @@ class SignupForm extends React.Component {
                 />
               </div>
             </div>
-              {this.renderErrorMessage("month")}
-              {this.renderErrorMessage("day")}
-              {this.renderErrorMessage("year")}
+            {this.renderErrorMessage("month")}
+            {this.renderErrorMessage("day")}
+            {this.renderErrorMessage("year")}
           </div>
 
           <div className="radio-gender">

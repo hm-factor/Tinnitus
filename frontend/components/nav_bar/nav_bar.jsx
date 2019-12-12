@@ -13,7 +13,11 @@ class NavBar extends React.Component {
     if (user) {
       return (
         <div className="nav-prof">
-          <div className='nav-user'>{user.username}</div>
+          <div className="arrows">
+            <span className="A1">A1</span>
+            <span className="A2">A2</span>
+          </div>
+          <div className="nav-user">{user.username}</div>
           <button onClick={logout}>LOGOUT</button>
         </div>
       );
@@ -30,7 +34,7 @@ class NavBar extends React.Component {
             </div>
             <div className="nav-log">
               <Link to="/login">LOG IN</Link>
-          </div>
+            </div>
           </div>
         </div>
       );
