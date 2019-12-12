@@ -131,8 +131,7 @@ input:focus {
   background-color: darkslateblue;
 }
 
-.btn-to-signup,
-.btn-to-login {
+.btn-to-signup {
   background-color: white;
   border: solid 3px darkblue;
   text-align: center;
@@ -146,6 +145,24 @@ input:focus {
 .to-login {
   text-decoration: none;
   color: grey;
+}
+
+.to-login:hover {
+  color: black;
+}
+
+.has-account {
+  display: flex;
+  padding: 15px;
+}
+
+.has-account > h3,
+.to-login {
+  font-weight: 500;
+}
+
+.to-login {
+  padding: 0px 5px;
 }
 
 .login-page > p {

@@ -219,8 +219,8 @@ class SignupForm extends React.Component {
             <button type="submit">SIGN UP</button>
           </div>
         </form>
-        <h3>Already have an account?</h3>
-        <div className="btn-to-login">
+        <div className="has-account">
+          <h3>Already have an account?</h3>
           <NavLink className="to-login" to="/login">
             Log in
           </NavLink>
