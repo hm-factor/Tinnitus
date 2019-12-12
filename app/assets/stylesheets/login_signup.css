@@ -157,7 +157,17 @@ input:focus {
 }
 
 .radio-gender {
+  margin: 15px;
   display: flex;
+  vertical-align: ;
+}
+
+.radio-gender > label {
+  font-size: 15px;
+}
+
+.radio-gender input {
+  margin: 10px;
 }
 
 select {

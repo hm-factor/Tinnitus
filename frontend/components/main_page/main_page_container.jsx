@@ -1,8 +1,6 @@
 import React from 'react';
-import { NavLink, Route } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import NavBarContainer from "../nav_bar/nav_bar_container";
-
-
 
 const MainPageContainer = () => {
   return (

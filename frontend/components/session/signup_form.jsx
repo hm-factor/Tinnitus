@@ -5,13 +5,14 @@ class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: '',
-      username: '',
-      month: '',
-      day: '',
-      year: '',
-      gender: ''
+      email: "",
+      password: "",
+      username: "",
+      month: "",
+      day: "",
+      year: "",
+      gender: "",
+      blurred: {}
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.createDate = this.createDate.bind(this);
@@ -20,27 +21,43 @@ class SignupForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let birth_date = this.createDate();
-    const user = Object.assign({}, this.state, {birth_date})
+    const user = Object.assign({}, this.state, { birth_date });
     this.props.signup(user);
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
   update(field) {
-    return(e) => {
-      this.setState({ [field]: e.target.value })
-    }
+    return e => {
+      this.setState({ [field]: e.target.value });
+    };
   }
 
   createDate() {
     const { month, day, year } = this.state;
     let newDay = day;
     if (parseInt(day, 10) < 10) {
-      newDay = ('0' + day)
-    };
-    return (newDay + '/' + month + '/' + year);
+      newDay = "0" + day;
+    }
+    return newDay + "/" + month + "/" + year;
   }
 
-  render () {
-  
+  renderErrorMessage(field) {
+    if (this.state[field].length === 0 && this.state.blurred[field]) {
+      return <div className="signup-errors">Please enter your {field}.</div>;
+    }
+  }
+
+  handleBlur(field) {
+    let blurred = Object.assign({}, this.state.blurred, { [field]: true });
+    return e => {
+      this.setState({ blurred });
+    };
+  }
+
+  render() {
     return (
       <div className="signup-page">
         <div className="title">
@@ -48,11 +65,6 @@ class SignupForm extends React.Component {
         </div>
         <form className="signup-form" onSubmit={this.handleSubmit}>
           <h3>Sign up with your email address</h3>
-          <ul>
-            {this.props.errors.map((error, i) => {
-              return <li key={i}>{error}</li>;
-            })}
-          </ul>
 
           <div className="sign-email">
             <input
@@ -60,7 +72,10 @@ class SignupForm extends React.Component {
               placeholder="Email"
               value={this.state.email}
               onChange={this.update("email")}
+              onBlur={this.handleBlur("email")}
             />
+
+            {this.renderErrorMessage("email")}
           </div>
 
           <div className="sign-pw">
@@ -69,7 +84,10 @@ class SignupForm extends React.Component {
               placeholder="Password"
               value={this.state.password}
               onChange={this.update("password")}
+              onBlur={this.handleBlur("password")}
             />
+
+            {this.renderErrorMessage("password")}
           </div>
           <div className="sign-user">
             <input
@@ -77,16 +95,20 @@ class SignupForm extends React.Component {
               placeholder="What should we call you?"
               value={this.state.username}
               onChange={this.update("username")}
+              onBlur={this.handleBlur("username")}
             />
+
+            {this.renderErrorMessage("username")}
           </div>
 
-          <label>
+          <div>
             Date of birth
             <div className="birthday">
               <div className="month">
                 <select
                   value={this.state.month}
                   onChange={this.update("month")}
+                  onBlur={this.handleBlur("month")}
                 >
                   <option value="">Month</option>
                   <option value="01">January</option>
@@ -105,22 +127,27 @@ class SignupForm extends React.Component {
               </div>
               <div className="day">
                 <input
-                  type="number"
+                  type="integer"
                   value={this.state.day}
                   placeholder="Day"
                   onChange={this.update("day")}
+                  onBlur={this.handleBlur("day")}
                 />
               </div>
               <div className="year">
                 <input
-                  type="number"
+                  type="integer"
                   value={this.state.year}
                   placeholder="Year"
                   onChange={this.update("year")}
+                  onBlur={this.handleBlur("year")}
                 />
               </div>
             </div>
-          </label>
+              {this.renderErrorMessage("month")}
+              {this.renderErrorMessage("day")}
+              {this.renderErrorMessage("year")}
+          </div>
 
           <div className="radio-gender">
             <label>
@@ -153,7 +180,9 @@ class SignupForm extends React.Component {
               />
               Non-binary
             </label>
+            {this.renderErrorMessage("gender")}
           </div>
+
           <div className="btn-signup">
             <button type="submit">SIGN UP</button>
           </div>

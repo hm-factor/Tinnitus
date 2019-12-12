@@ -6,14 +6,20 @@ class LoginForm extends React.Component {
     super(props);
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      blurred: {}
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
   handleSubmit(e) {
+    e.preventDefault();
     this.props.login(this.state);
   }
 
@@ -30,6 +36,23 @@ class LoginForm extends React.Component {
     }
 
     this.props.login(demoUser);
+  }
+
+  renderErrorMessage(field) {
+    if (this.state[field].length === 0 && this.state.blurred[field]) {
+      return (
+        <div className='login-errors'>
+          Please enter your {field}.
+        </div>
+      )
+    }
+  }
+
+  handleBlur(field) {
+    let blurred = Object.assign({}, this.state.blurred, { [field]: true });
+    return(e) => {
+      this.setState({ blurred });
+    }
   }
 
   render() {
@@ -60,7 +83,10 @@ class LoginForm extends React.Component {
               value={this.state.username}
               onChange={this.update("username")}
               placeholder="Username"
+              onBlur={this.handleBlur("username")}
             />
+
+            {this.renderErrorMessage("username")}
           </div>
           <div className="log-pw">
             <input
@@ -69,7 +95,10 @@ class LoginForm extends React.Component {
               placeholder="password"
               onChange={this.update("password")}
               placeholder="Password"
+              onBlur={this.handleBlur("password")}
             />
+
+            {this.renderErrorMessage("password")}
           </div>
           <div className="btn-login">
             <button type="submit">LOG IN</button>
@@ -80,8 +109,10 @@ class LoginForm extends React.Component {
 
         <h3>Don't have an account?</h3>
 
-        <div className='btn-to-signup'>
-          <NavLink className="to-signup" to="/signup">SIGN UP FOR SPOTIFY</NavLink>
+        <div className="btn-to-signup">
+          <NavLink className="to-signup" to="/signup">
+            SIGN UP FOR SPOTIFY
+          </NavLink>
         </div>
 
         <p>
