@@ -13,3 +13,4 @@ demoUser = User.create!({
   birth_date: "02/02/2020",
   gender: "non-binary"
 })
+
