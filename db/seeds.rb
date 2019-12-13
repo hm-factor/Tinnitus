@@ -6,6 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.destroy_all
+Artist.destroy_all
+Album.destroy_all
+Song.destroy_all
+
 demoUser = User.create!({
   username: "Demo", 
   password: "demodemo",
@@ -14,3 +19,27 @@ demoUser = User.create!({
   gender: "non-binary"
 })
 
+#10.times do |i|
+#  Artist.create({
+#    name: Faker::Music::RockBand.name,
+#    bio: Faker::Movies::StarWars.wookie_sentence
+#  })
+#end
+#
+#Artist.all.each do |artist|
+#  3.times do |j|
+#    artist.album.create({
+#      title: Faker::Space.star_cluster,
+#      year: rand(1900..2020)
+#    })
+#  end
+#end
+  
+  
+  #11.times do 
+  #  Song.create!({
+  #    title: Faker::Space.star,
+  #    album_id: alb.id,
+  #    artist_id: art.id
+  #  })
+  #end

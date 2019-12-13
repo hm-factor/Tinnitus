@@ -15,7 +15,9 @@
 
 class User < ApplicationRecord
   attr_reader :password
-
+  
+  has_many :playlists
+  
   validates :birth_date, :gender, :username, :email, 
               :password_digest, :session_token, presence: true
   validates :username, :session_token, uniqueness: true

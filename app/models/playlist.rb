@@ -11,4 +11,7 @@
 #
 
 class Playlist < ApplicationRecord
+  has_one :author
+  has_many :likes, as: :likeable
+
 end
