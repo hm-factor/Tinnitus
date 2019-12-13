@@ -10,10 +10,57 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_09_235925) do
+ActiveRecord::Schema.define(version: 2019_12_12_225627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "albums", force: :cascade do |t|
+    t.string "title", null: false
+    t.integer "artist_id", null: false
+    t.integer "year", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_albums_on_artist_id"
+  end
+
+  create_table "artists", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "bio"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_artists_on_name", unique: true
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "likeable_id", null: false
+    t.string "likeable_type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["likeable_id"], name: "index_likes_on_likeable_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "playlists", force: :cascade do |t|
+    t.string "title", null: false
+    t.integer "author_id", null: false
+    t.boolean "private", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_playlists_on_author_id"
+    t.index ["title"], name: "index_playlists_on_title"
+  end
+
+  create_table "songs", force: :cascade do |t|
+    t.string "title", null: false
+    t.integer "album_id", null: false
+    t.integer "artist_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["album_id"], name: "index_songs_on_album_id"
+    t.index ["artist_id"], name: "index_songs_on_artist_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.date "birth_date", null: false
