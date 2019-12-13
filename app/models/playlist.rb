@@ -14,4 +14,6 @@ class Playlist < ApplicationRecord
   has_one :author
   has_many :likes, as: :likeable
 
+  validates :title, presence: true, uniqueness: { scope: :author_id }
+  validates :private, inlcusion: { in: [true, false] }
 end

@@ -8,9 +8,8 @@ Rails.application.routes.draw do
     resources :albums, only: [:index, :show]
     resources :songs, only: [:index, :show]
     resources :playlists, only: [:index, :show, :create, :destroy]
-    
-    #index is necessary for search functionality
 
+    #index is necessary for search functionality
   end
 
   root to: 'static_pages#root'

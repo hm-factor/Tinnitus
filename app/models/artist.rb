@@ -14,4 +14,6 @@ class Artist < ApplicationRecord
   has_many :albums
   has_many :likes, as: :likeable
 
+  validates :name, uniqueness: true, presence: true
+  validates :bio, presence: { allow_nil: true }
 end

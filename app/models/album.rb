@@ -15,4 +15,5 @@ class Album < ApplicationRecord
   has_many :songs
   has_many :likes, as: :likeable
 
+  validates :title, presence: true
 end
