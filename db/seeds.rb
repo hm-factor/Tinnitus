@@ -25,7 +25,7 @@ demoUser = User.create!({
 #    bio: Faker::Movies::StarWars.wookie_sentence
 #  })
 #end
-#
+
 #Artist.all.each do |artist|
 #  3.times do |j|
 #    artist.album.create({

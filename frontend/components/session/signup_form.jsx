@@ -195,11 +195,13 @@ class SignupForm extends React.Component {
           <div className="divider" />
 
           <p className="legalities">
-            By clicking on Sign up, you agree to Spotify's Terms and Conditions of Use.
+            By clicking on Sign up, you are willingly relinquishing any 
+            proper ear functionality and agreeing to the Conditions of Use.
           </p>
 
           <p className="legalities">
-            To learn more about how Spotify collects, uses, shares and protects your personal data please read Spotify's Privacy Policy.
+            To learn more about how Tinnitus collects, uses, shares and protects your ear's functionality,
+            follow us on instagram.
           </p>
 
           <div className="btn-signup">

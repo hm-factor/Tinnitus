@@ -112,7 +112,7 @@ class LoginForm extends React.Component {
         <h3>Don't have an account?</h3>
 
         <div className="btn-to-signup" onClick={this.loginRedirect}>
-          <h3>SIGN UP FOR SPOTIFY</h3>
+          <h3>SIGN UP FOR TINNITUS</h3>
         </div>
 
         <div className="divider">
