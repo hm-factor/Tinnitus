@@ -116,11 +116,10 @@ class LoginForm extends React.Component {
         </div>
 
         <div className="divider">
-            divider
         </div>
 
         <p>
-          If you click "Log in with Facebook" and are not a Spotify user,
+          If you click "Log in with Facebook" and are not a Tinnitus user,
           nothing will happen because that button doesn't exist.
         </p>
       </div>

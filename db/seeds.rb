@@ -43,3 +43,10 @@ demoUser = User.create!({
   #    artist_id: art.id
   #  })
   #end
+
+# 30.times do 
+#   User.create(
+#     username: Faker::Internet.username,
+#     password: Faker::Internet.password(min_length: 6, max_length:  12)
+#   )
+# end

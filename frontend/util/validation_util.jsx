@@ -55,8 +55,8 @@ export const renderErrorMessages = (field, value, blur) => {
 
   if (field === "year") {
     if (
-      value > 12 ||
-      value < 1
+      value > 2020 ||
+      value < 1900
     ) { 
       errors.year = "Please enter a valid year."; 
     } else {
