@@ -7,7 +7,6 @@ const MainPageContainer = () => {
       <div className="main-cont">
         <div className="side-bar">
           <h1 className="title">
-            {/* <Link to='/'>tinnitus</Link> */}
             <NavLink activeClassName='title' to='/'>tinnitus</NavLink>
           </h1>
         </div>

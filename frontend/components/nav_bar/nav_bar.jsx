@@ -14,11 +14,13 @@ class NavBar extends React.Component {
       return (
         <div className="nav-prof">
           <div className="arrows">
-            <span className="A1">A1</span>
-            <span className="A2">A2</span>
+            <span className="arrow">A1</span>
+            <span className="arrow">A2</span>
           </div>
-          <div className="nav-user">{user.username}</div>
-          <button onClick={logout}>LOGOUT</button>
+          <div className="nav-user-logout">
+            <div className="nav-user">{user.username}</div>
+            <button onClick={logout}>LOGOUT</button>
+          </div>
         </div>
       );
     } else {

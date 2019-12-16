@@ -1,15 +1,17 @@
 .nav-cont {
   /* display: flex; */
   z-index: 2;
-  background-color: #0b0b0b;
-  height: 80px;
+  background-color: #121212;
+  height: 48px;
   width: 100%;
   justify-content: space-between;
+  padding: 16px 24px;
 }
 
 .nav-links {
   display: flex;
   justify-content: space-between;
+  vertical-align: middle;
 }
 
 .nav-prof {
@@ -21,7 +23,15 @@
   color: white;
   padding: 5px;
   border-radius: 50px;
-  height: 20px;
+}
+
+.arrow {
+  background-color: black;
+  color: white;
+  /* padding: 5px; */
+  border-radius: 50px;
+  height: 22px;
+  width: 22px;
 }
 
 .nav-forms {
