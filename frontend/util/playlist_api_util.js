@@ -22,9 +22,18 @@ export const fetchPlaylists = playlists => {
   })
 } 
 
-export const deletePlaylist = () => {
+// need an edit request
+
+// export const editPlaylist = playlist => {
+//   return $.ajax({
+//     method: 'PATCH',
+//     url: '/api/playlist'
+//   })
+// }
+
+export const deletePlaylist = playlistId => {
   return $.ajax({
     method: 'DELETE',
-    url: '/api/playlist'
+    url: `/api/playlist/${playlistId}`
   })
 }
