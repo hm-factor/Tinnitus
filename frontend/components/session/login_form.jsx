@@ -61,7 +61,10 @@ class LoginForm extends React.Component {
     return (
       <div className="login-page">
         <div className="title">
-          <h1>tinnitus</h1>
+          <h1>
+            <i className="fas fa-deaf"></i>
+            tinnitus
+          </h1>
         </div>
         <h3>To continue, log in to Tinnitus.</h3>
         <div className="btn-demo">
@@ -115,8 +118,7 @@ class LoginForm extends React.Component {
           <h3>SIGN UP FOR TINNITUS</h3>
         </div>
 
-        <div className="divider">
-        </div>
+        <div className="divider"></div>
 
         <p>
           If you click "Log in with Facebook" and are not a Tinnitus user,

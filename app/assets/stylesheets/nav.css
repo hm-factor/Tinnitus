@@ -1,8 +1,8 @@
 .nav-cont {
-  /* display: flex; */
   z-index: 2;
   background-color: #121212;
   height: 48px;
+  /* min-width: 490px; */
   width: 100%;
   justify-content: space-between;
   padding: 16px 24px;
@@ -12,10 +12,6 @@
   display: flex;
   justify-content: space-between;
   vertical-align: middle;
-}
-
-.nav-prof {
-
 }
 
 .arrows {

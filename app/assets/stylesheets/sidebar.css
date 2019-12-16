@@ -1,18 +1,73 @@
 .side-bar {
   display: flex;
-  min-width: 230px;
+  width: 230px;
   background-color: #040404;
   height: 100%;
   z-index: 3;
-  box-orient: vertical;
+  flex-direction: column;
 }
 
-.title {
-  padding: 20px;
-  width: 0 auto;
-  font-size: 24px;
+.side-logo {
+  padding: 24px 0 0 0;
+} 
+
+.side-bar-nav {
+  width: 100%;
+  font-family: Helvetica,Arial, sans-serif;
   color: white;
+  /* text-align: center; */
+}
+
+.side-title {
+  padding: 0 0 18px 24px;
+  font-size: 24px;
+  font-weight: bold;
   font-family: Helvetica,Arial, sans-serif;
   color: white;
   text-decoration: none;
+  display: block;
 }
+
+.fa-deaf {
+  font-size: 40px;
+}
+
+.side-links li {
+  font-size: 14px;
+  font-weight: 600;
+  height: 40px;
+  line-height: 40px;
+  width: 100%;
+  padding: 0 24px;
+  list-style: none;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.side-nav-link {
+  text-decoration: none;
+}
+
+.fa-home, .fa-search, .fa-book {
+  line-height: 45px;
+  font-size: 20px;
+  color: #B3B3B3;
+  transition: color 0.2s ease 0s;
+}
+
+.nav-li-text {
+  margin-left: 16px;
+  color: #B3B3B3;
+  transition: color 200ms ease 0s;
+}
+
+.side-bar-ul li:hover .nav-li-text,
+li:hover .fas {
+  color: white;
+}
+
+.active .nav-li-text,
+.active .fas {
+  color: white;
+}
+

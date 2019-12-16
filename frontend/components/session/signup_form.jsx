@@ -72,7 +72,10 @@ class SignupForm extends React.Component {
     return (
       <div className="signup-page">
         <div className="title">
-          <h1>tinnitus</h1>
+          <h1>
+            <i className="fas fa-deaf"></i>
+            tinnitus
+          </h1>
         </div>
         <form className="signup-form" onSubmit={this.handleSubmit}>
           <h3>Sign up with your email address</h3>
@@ -195,13 +198,13 @@ class SignupForm extends React.Component {
           <div className="divider" />
 
           <p className="legalities">
-            By clicking on Sign up, you are willingly relinquishing any 
-            proper ear functionality and agreeing to the Conditions of Use.
+            By clicking on Sign up, you are willingly relinquishing any proper
+            ear functionality and agreeing to the Conditions of Use.
           </p>
 
           <p className="legalities">
-            To learn more about how Tinnitus collects, uses, shares and protects your ear's functionality,
-            follow us on instagram.
+            To learn more about how Tinnitus collects, uses, shares and protects
+            your ear's functionality, follow us on instagram.
           </p>
 
           <div className="btn-signup">
