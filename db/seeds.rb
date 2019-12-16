@@ -19,30 +19,31 @@ demoUser = User.create!({
   gender: "non-binary"
 })
 
-#10.times do |i|
-#  Artist.create({
-#    name: Faker::Music::RockBand.name,
-#    bio: Faker::Movies::StarWars.wookie_sentence
-#  })
-#end
+5.times do
+ Artist.create({
+   name: Faker::Music::RockBand.unique.name,
+   bio: Faker::Movies::StarWars.wookie_sentence
+ })
+end
 
-#Artist.all.each do |artist|
-#  3.times do |j|
-#    artist.album.create({
-#      title: Faker::Space.star_cluster,
-#      year: rand(1900..2020)
-#    })
-#  end
-#end
+Artist.all.each do |artist|
+ 3.times do
+   artist.albums.create({
+     title: Faker::Movies::StarWars.unique.call_sign,
+     year: rand(1900..2020)
+   })
+ end
+end
   
-  
-  #11.times do 
-  #  Song.create!({
-  #    title: Faker::Space.star,
-  #    album_id: alb.id,
-  #    artist_id: art.id
-  #  })
-  #end
+Album.all.each do |album|
+  7.times do 
+    album.songs.create({
+      title: Faker::Movies::StarWars.specie,
+      album_id: album.id,
+      artist_id: album.artist_id
+    })
+  end
+end
 
 # 30.times do 
 #   User.create(
