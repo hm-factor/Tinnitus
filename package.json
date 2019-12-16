@@ -35,5 +35,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "react-svg-loader": "^3.0.3"
+  }
 }

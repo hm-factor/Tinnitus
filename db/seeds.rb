@@ -19,6 +19,12 @@ demoUser = User.create!({
   gender: "non-binary"
 })
 
+demoPlaylist = Playlist.create!({
+  title: "demoPlaylist",
+  author_id: demoUser.id,
+  private: false
+})
+
 5.times do
  Artist.create({
    name: Faker::Music::RockBand.unique.name,
@@ -44,6 +50,8 @@ Album.all.each do |album|
     })
   end
 end
+
+
 
 # 30.times do 
 #   User.create(

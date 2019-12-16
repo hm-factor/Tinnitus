@@ -1,15 +1,13 @@
-export const fetchAlbums = albums => {
+export const fetchAlbums = () => {
   return $.ajax({
     method: 'GET',
-    url: '/api/collection/albums',
-    data: { albums }
+    url: '/api/collection/albums'
   })
 }
 
-export const fetchAlbum = album => {
+export const fetchAlbum = albumId => {
   return $.ajax({
     method: 'GET',
-    url: `api/albums/${album.id}`,
-    data: { album }
+    url: `api/albums/${albumId}`
   })
 }

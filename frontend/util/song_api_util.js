@@ -1,15 +1,13 @@
-export const fetchSongs = songs => {
+export const fetchSongs = () => {
   return $.ajax({
     method: 'GET',
-    url: '/api/collection/songs',
-    data: { songs }
+    url: '/api/collection/songs'
   })
 }
 
-export const fetchSong = song => {
+export const fetchSong = songId => {
   return $.ajax({
     method: 'GET',
-    url: `api/songs/${song.id}`,
-    data: { song }
+    url: `api/songs/${songId}`
   })
 }

@@ -6,19 +6,17 @@ export const createPlaylist = playlist => {
   })
 }
 
-export const fetchPlaylist = playlist => {
+export const fetchPlaylist = playlistId => {
   return $.ajax({
     method: 'GET',
-    url: `/api/playlists/${playlist.id}`,
-    data: {playlist}
+    url: `/api/playlists/${playlistId}`
   })
 } 
 
-export const fetchPlaylists = playlists => {
+export const fetchPlaylists = () => {
   return $.ajax({
     method: 'GET',
-    url: '/api/collection/playlists',
-    playlists
+    url: '/api/collection/playlists'
   })
 } 
 
