@@ -1,15 +1,15 @@
 export const fetchArtists = artists => {
   return $.ajax({
     method: 'GET',
-    url: '/api/collection/artists',
+    url: '/api/artists',
     data: { artists }
   })
 }
 
-export const fetchArtist = artist => {
+export const fetchArtist = artistId => {
   return $.ajax({
     method: 'GET',
-    url: `api/artists/${artist.id}`,
+    url: `api/artists/${artistId}`,
     data: { artist }
   })
 }

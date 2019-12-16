@@ -3,5 +3,4 @@ class Api::SongsController < ApplicationController
     @songs = Song.all
     render :index
   end 
-
 end 

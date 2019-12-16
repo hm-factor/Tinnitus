@@ -5,7 +5,7 @@ class Api::AlbumsController < ApplicationController
   end
 
   def show
-    @album = #searchable
+    @album = Album.find(params[:id])
     render :show
   end
 end

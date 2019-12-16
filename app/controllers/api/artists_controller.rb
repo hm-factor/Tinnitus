@@ -5,13 +5,11 @@ class Api::ArtistsController < ApplicationController
   end
 
   def show
-    @artist = Artist.find(name: name)
-    # how do I search for names
+    @artist = Artist.find(params[:id])
 
     # @artist = Artist.where('name LIKE ?', params[:search]')
     # need searchable to make this work though
     
     render :show
-    # render '/api/artist/:artistId'
   end
 end
