@@ -35,6 +35,7 @@ const Logo = () => {
       <div className="side-playlist-create">
 
       </div>
+      
       <div className="side-playlist-scroll">
 
       </div>
