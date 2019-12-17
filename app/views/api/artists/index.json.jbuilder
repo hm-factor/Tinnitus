@@ -1,5 +1,5 @@
 @artists.each do |artist|
   json.set! artist.id do
-    json.extract! artist, :id, :name, :bio
+    json.partial! artist, as: :artist
   end
 end

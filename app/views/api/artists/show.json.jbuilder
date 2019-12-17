@@ -1,4 +1,4 @@
 json.set! @artist.id do 
-  json.extract! @artist, :id, :name, :bio
+  json.partial! @artist, as: :artist
   json.albumIds @artist.albums.pluck(:id)
 end

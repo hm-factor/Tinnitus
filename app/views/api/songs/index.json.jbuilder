@@ -1,1 +1,5 @@
-json.array! @songs, :id, :title, :artist_id, :album_id
+@songs.each do |song|
+  json.set! song.id do
+    json.partial! song, as: :song
+  end
+end
