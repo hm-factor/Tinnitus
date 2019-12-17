@@ -22,7 +22,7 @@ export const fetchArtists = artists => {
     .then( artists => dispatch(receiveArtists(artists)));
 };
 
-export const fetchArtist = artist => {
-  return artistUtil.fetchArtist(artist)
+export const fetchArtist = artistId => {
+  return artistUtil.fetchArtist(artistId)
     .then( artist => dispatch(receiveArtist(artist)));
 };
