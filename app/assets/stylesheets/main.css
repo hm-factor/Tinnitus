@@ -1,3 +1,7 @@
+.whole-page {
+  height: 100%;
+}
+
 .main-cont {
   display: flex;
   height: 100%;

@@ -6,7 +6,7 @@ import { createPlaylist } from '../../actions/playlist_actions';
 
 const msp = state => {
   return {
-    name = ""
+    name: ""
   }
 }
 
