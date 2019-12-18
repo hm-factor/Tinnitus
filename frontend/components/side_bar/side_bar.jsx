@@ -1,8 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PlaylistCreateContainer from "../music/playlist_create_container";
-import { openModal } from '../../actions/modal_actions';
-
 
 class SideBar extends React.Component {
   constructor(props) {
@@ -10,13 +8,15 @@ class SideBar extends React.Component {
   }
   
   render () {
-    const { userId } = this.props;
-    let playlistcreatebutton = userId ? (
-      <button onClick={() => openModal("createPlaylist")}>
-        Create Playlist
-      </button>
-    ) : (
-      <div></div>
+    const { userId, openModal } = this.props;
+    let playlistcreatebutton = () => (
+      userId ? (
+        <button onClick={() => openModal("createPlaylist")}>
+          Create Playlist
+        </button>
+      ) : (
+        <div></div>
+      )
     );
     return (
       <div className="side-bar">
@@ -48,9 +48,11 @@ class SideBar extends React.Component {
             </li>
           </ul>
         </div>
+
         <div className="side-playlist-create">
-          {playlistcreatebutton}
+          {playlistcreatebutton()}
         </div>
+
         <div className="side-playlist-scroll">
 
         </div>
