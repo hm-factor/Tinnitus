@@ -9,15 +9,25 @@ class SideBar extends React.Component {
   
   render () {
     const { userId, openModal } = this.props;
-    let playlistcreatebutton = () => (
+    let playlistActions = () =>
       userId ? (
-        <button onClick={() => openModal("createPlaylist")}>
-          Create Playlist
-        </button>
+        <div className="side-playlist-actions">
+          <div className="side-playlist-create">
+            <div className="side-playlist-header">Playlists</div>
+            <button
+              onClick={() => openModal("createPlaylist")}
+              className="side-playlist-create-btn"
+            >
+              <i className="fas fa-plus-square"></i>
+              <span className="create-playlist-text">Create Playlist</span>
+            </button>
+            <div className="side-playlist-scroll"></div>
+          </div>
+        </div>
       ) : (
         <div></div>
-      )
-    );
+      );
+
     return (
       <div className="side-bar">
         <div className="side-logo">
@@ -49,13 +59,8 @@ class SideBar extends React.Component {
           </ul>
         </div>
 
-        <div className="side-playlist-create">
-          {playlistcreatebutton()}
-        </div>
+        {playlistActions()}
 
-        <div className="side-playlist-scroll">
-
-        </div>
       </div>
     );
   }

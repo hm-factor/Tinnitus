@@ -31,7 +31,7 @@ class PlaylistCreate extends React.Component {
 
     return (
       <div className="create-playlist-form">
-        <i className="fas fa-times-circle"></i>
+        <i className="fas fa-times"></i>
         <h1 className="create-playlist-title">Create new playlist</h1>
         <div className="create-playlist-input">
           <h3 className="create-playlist-input-title">Playlist Name</h3>

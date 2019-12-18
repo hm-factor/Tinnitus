@@ -61,13 +61,53 @@
 }
 
 .side-bar-ul li:hover .nav-li-text,
-li:hover .fas {
+li:hover .fas,
+button:hover .fas,
+button:hover .create-playlist-text {
   color: white;
 }
 
 .active .nav-li-text,
 .active .fas {
   color: white;
+}
+
+.side-playlist-actions {
+  margin-top: 20px;
+}
+
+.side-playlist-header {
+  color: #B3B3B3;
+  font-family: helvetica;
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  padding-left: 24px;
+  text-transform: uppercase;
+}
+
+.side-playlist-create-btn {
+  background-color: black;
+  border: none;
+  font-size: 14px;
+  font-family: helvetica;
+  font-weight: 600;
+  padding: 15px 24px;
+  align-items: center;
+  outline: none;
+  display: flex;
+}
+
+.fa-plus-square {
+  font-size: 32px;
+  color: #B3B3B3;
+  transition: color 0.2s ease 0s;
+}
+
+.create-playlist-text {
+  color: #B3B3B3;
+  margin-left: 16px;
+  transition: color 0.2s ease 0s;
 }
 
 .modal-background {
