@@ -33,7 +33,7 @@ class PlaylistCreate extends React.Component {
       <div className="create-playlist-form">
         <i className="fas fa-times" onClick={() => this.props.closeModal()}></i>
         <h1 className="new-playlist-title">Create new playlist</h1>
-        <div className="new-playlist-input-box">
+        <div className="new-playlist-input-container">
           <form onSubmit={this.handleSubmit}>
             <div className="new-playlist-input">
               <h3 className="new-playlist-input-title">Playlist Name</h3>

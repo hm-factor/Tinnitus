@@ -46,12 +46,21 @@
   width: 100%;
 }
 
-.new-playlist-input {
+.new-playlist-input-container {
   height: 150px;
+  width: 100%;
+  background-color: #282828;
+  display: flex;
+  justify-content: center;
+}
+
+.new-playlist-input {
   width: 100%;
   background-color: #282828;
   box-sizing: border-box;
   padding: 32px;
+  display: flex;
+  flex-direction: column;
 }
 
 .new-playlist-input-title {
@@ -63,7 +72,7 @@
 
 .new-playlist-input-box {
   height: 56px;
-  width: 100%;
+  width: 800px;
   background-color: inherit;
   border: none;
   outline: none;
@@ -78,7 +87,7 @@
   border: none;
 }
 
-.new-playlist-input-box ::placeholder {
+.new-playlist-input-box::placeholder {
   font-size: 48px;
   color: #535353;
 }
