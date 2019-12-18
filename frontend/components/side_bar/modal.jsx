@@ -1,7 +1,7 @@
 import React from "react";
 import { closeModal } from "../../actions/modal_actions";
 import { connect } from "react-redux";
-import { createPlaylist } from "../../actions/playlist_actions"
+import PlaylistCreateContainer from '../music/playlist_create_container';
 
 const Modal = ({ modal, closeModal }) => {
   if (!modal) {
@@ -11,7 +11,7 @@ const Modal = ({ modal, closeModal }) => {
   let component;
   switch (modal) {
     case 'createPlaylist':
-      component = "ok";
+      component = <PlaylistCreateContainer />;
       break;
     default:
       return null;
