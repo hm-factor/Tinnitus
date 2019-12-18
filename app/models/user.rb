@@ -16,7 +16,8 @@
 class User < ApplicationRecord
   attr_reader :password
   
-  has_many :playlists
+  has_many :playlists,
+    foreign_key: :author_id
   
   validates :birth_date, :gender, :username, :email, 
               :password_digest, :session_token, presence: true

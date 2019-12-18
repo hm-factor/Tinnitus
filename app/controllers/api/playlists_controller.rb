@@ -5,10 +5,9 @@ class Api::PlaylistsController < ApplicationController
   end 
 
   def create
-    @playlist = Playlist.new(playlist_params)
-    @playlist.author_id = current_user.id
+    @playlist = current_user.playlists.new(playlist_params)
     @playlist.privacy = false
-    debugger
+
     if @playlist.save
       render :show
     else

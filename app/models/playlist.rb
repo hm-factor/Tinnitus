@@ -11,7 +11,11 @@
 #
 
 class Playlist < ApplicationRecord
-  has_one :author
+  belongs_to :author,
+    foreign_key: :author_id,
+    primary_key: :id,
+    class_name: :User
+
   has_many :likes, as: :likeable
 
   validates :title, presence: true, uniqueness: { scope: :author_id }
