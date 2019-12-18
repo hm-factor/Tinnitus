@@ -6,7 +6,9 @@ class Api::PlaylistsController < ApplicationController
 
   def create
     @playlist = Playlist.new(playlist_params)
-    
+    @playlist.author_id = current_user.id
+    @playlist.privacy = false
+    debugger
     if @playlist.save
       render :show
     else
@@ -23,7 +25,6 @@ class Api::PlaylistsController < ApplicationController
     # @playlist = Playlist.
     @playlist.destroy
     render '/'
-    # render '/api/collection/playlists'
   end
 
   private

@@ -22,7 +22,7 @@ demoUser = User.create!({
 demoPlaylist = Playlist.create!({
   title: "demoPlaylist",
   author_id: demoUser.id,
-  private: false
+  privacy: false
 })
 
 5.times do

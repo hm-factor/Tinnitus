@@ -5,7 +5,7 @@ class PlaylistCreate extends React.Component {
     super(props)
 
     this.state = {
-      name: ""
+      title: ""
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -18,28 +18,35 @@ class PlaylistCreate extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createPlaylist(this.state);
+    this.props.closeModal();
+    debugger;
+    let copyState = Object.assign({}, this.state);
+    if (this.state.title.length === 0) {
+      copyState.title = "New Playlist"
+    }
+    this.props.createPlaylist(copyState);
   }
 
   render () {
 
     return (
       <div className="create-playlist-form">
+        <i className="fas fa-times-circle"></i>
         <h1 className="create-playlist-title">Create new playlist</h1>
         <div className="create-playlist-input">
           <h3 className="create-playlist-input-title">Playlist Name</h3>
           <form onSubmit={this.handleSubmit}>
             <input
               type="text"
-              value={this.state.name}
-              onChange={this.update("name")}
+              value={this.state.title}
+              onChange={this.update("title")}
               placeholder="New Playlist"
             />
+            <div className="create-playlist-btns">
+              <button onClick={() => this.props.closeModal()}>CANCEL</button>
+              <button type="submit">CREATE</button>
+            </div>
           </form>
-        </div>
-        <div className="create-playlist-btns">
-          <button>cancel/modal close</button>
-          <button type="submit">CREATE</button>
         </div>
       </div>
     );
