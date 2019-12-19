@@ -1,0 +1,29 @@
+.scroll-container {
+  height: 100%;
+}
+
+.playlist-ul {
+  height: 100%;
+  overflow: visible;
+  width: inherit;
+  box-sizing: border-box;
+}
+
+.playlist-li {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 24px;
+}
+
+.playlist-link {
+  text-decoration: none;
+  color: #b3b3b3;
+  font-family: helvetica;
+  font-size: 14px;
+}
+
+.playlist-link:focus,
+.playlist-link:hover {
+  color: white;
+}

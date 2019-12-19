@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { fetchAuthoredPlaylists } from '../../actions/playlist_actions';
+import PlaylistScrollContainer from './playlist_scroll_container';
 
 class SideBar extends React.Component {
   constructor(props) {
@@ -8,7 +8,7 @@ class SideBar extends React.Component {
   }
 
   componentDidMount() {
-    fetchAuthoredPlaylists(this.props.userId)
+    this.props.fetchAuthoredPlaylists(this.props.userId);
   }
   
   render () {
@@ -27,6 +27,7 @@ class SideBar extends React.Component {
             </button>
             <div className="side-playlist-scroll"></div>
           </div>
+          <PlaylistScrollContainer />
         </div>
       ) : (
         <div></div>

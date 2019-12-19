@@ -23,8 +23,7 @@ export const fetchPlaylists = () => {
 export const fetchAuthoredPlaylists = authorId => {
   return $.ajax({
     method: 'GET',
-    url: `/api/users/${authorId}/playlists`,
-    data: { playlists }
+    url: `/api/users/${authorId}/playlists`
   })
 }
 

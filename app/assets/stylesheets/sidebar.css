@@ -96,6 +96,7 @@ button:hover .create-playlist-text {
   align-items: center;
   outline: none;
   display: flex;
+  cursor: pointer;
 }
 
 .fa-plus-square {

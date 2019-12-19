@@ -46,12 +46,12 @@ class PlaylistCreate extends React.Component {
             </div>
             <div className="new-playlist-btns">
               <div className="playlist-cancel-btn-box">
-                <button
+                <input
+                  type="button"
                   onClick={() => this.props.closeModal()}
                   className="playlist-cancel-btn"
-                >
-                  CANCEL
-                </button>
+                  value="CANCEL"
+                />
               </div>
               <div className="playlist-create-btn-box">
                 <input

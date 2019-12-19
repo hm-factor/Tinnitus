@@ -121,6 +121,10 @@
   border: 1px solid white;
 }
 
+.playlist-cancel-btn:focus {
+  border: none;
+}
+
 .playlist-create-btn {
   background-color: slateblue;
   border: 1px solid slateblue;

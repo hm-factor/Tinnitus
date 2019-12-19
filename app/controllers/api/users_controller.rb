@@ -1,8 +1,20 @@
 class Api::UsersController < ApplicationController
+  before_action :ensure_logged_in
 
   def index 
     @users = User.all
     render :index
+  end
+
+  def show
+    @user = User.find(params[:id])
+    render :show
+  end
+
+  def playlists
+    @user = current_user
+    @playlists = @user.playlists
+    render '/api/playlists/index'
   end
 
   def create
