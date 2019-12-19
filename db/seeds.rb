@@ -1,10 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
 
 User.destroy_all
 Artist.destroy_all
@@ -12,7 +6,7 @@ Album.destroy_all
 Song.destroy_all
 
 demoUser = User.create!({
-  username: "Demo", 
+  username: "Guest", 
   password: "demodemo",
   email: "demo@demo.com",
   birth_date: "02/02/2020",
@@ -25,37 +19,67 @@ demoPlaylist = Playlist.create!({
   privacy: false
 })
 
-5.times do
- Artist.create({
-   name: Faker::Music::RockBand.unique.name,
-   bio: Faker::Movies::StarWars.wookie_sentence
- })
-end
+bm = Artist.create({
+  name: 'Black Midi',
+  bio: 'not really black midi'
+})
 
-Artist.all.each do |artist|
- 3.times do
-   artist.albums.create({
-     title: Faker::Movies::StarWars.unique.call_sign,
-     year: rand(1900..2020)
-   })
- end
-end
-  
-Album.all.each do |album|
-  7.times do 
-    album.songs.create({
-      title: Faker::Movies::StarWars.specie,
-      album_id: album.id,
-      artist_id: album.artist_id
-    })
-  end
-end
+bm_album = bm.albums.create({
+  title: 'unreleased live',
+  year: '2019'
+})
 
+song_1 = bm_album.songs.create({
+  title: 'song 3',
+  artist_id: bm_album.artist_id
+})
+
+song_2 = bm_album.songs.create({
+  title: 'song 3',
+  artist_id: bm_album.artist_id
+})
+
+song_3 = bm_album.songs.create({
+  title: 'song 3',
+  artist_id: bm_album.artist_id
+})
 
 
-# 30.times do 
-#   User.create(
-#     username: Faker::Internet.username,
-#     password: Faker::Internet.password(min_length: 6, max_length:  12)
-#   )
+# song_file_1 = open('https://tinnitus-dev.s3.amazonaws.com/n4.mp3')
+# song_1.song_file.attach(io: song_file_1, filename:'n4.mp3')
+
+
+# post = Post.first
+# file = File.open('app/assets/images/sennacy.jpg')
+# post.photo.attach(io: file, filename: 'sennacy.jpg')
+# post.photo.attached? # => true
+
+
+### FAKER ###
+
+# 5.times do
+#  Artist.create({
+#    name: Faker::Music::RockBand.unique.name,
+#    bio: Faker::Movies::StarWars.wookie_sentence
+#  })
 # end
+
+# Artist.all.each do |artist|
+#  3.times do
+#    artist.albums.create({
+#      title: Faker::Movies::StarWars.unique.call_sign,
+#      year: rand(1900..2020)
+#    })
+#  end
+# end
+  
+# Album.all.each do |album|
+#   7.times do 
+#     album.songs.create({
+#       title: Faker::Movies::StarWars.specie,
+#       album_id: album.id,
+#       artist_id: album.artist_id
+#     })
+#   end
+# end
+

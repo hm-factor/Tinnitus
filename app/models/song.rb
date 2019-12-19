@@ -11,9 +11,11 @@
 #
 
 class Song < ApplicationRecord
+  validates :title, presence: true
+
   belongs_to :album
   belongs_to :artist
   has_many :likes, as: :likeable
 
-  validates :title, presence: true
+  has_one_attached :song_file
 end
