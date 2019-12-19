@@ -32,7 +32,7 @@ class LoginForm extends React.Component {
 
   handleDemoSubmit(e) {
     const demoUser = {
-      username: "Demo",
+      username: "Guest",
       password: "demodemo"
     };
 

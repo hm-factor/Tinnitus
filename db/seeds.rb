@@ -30,12 +30,12 @@ bm_album = bm.albums.create({
 })
 
 song_1 = bm_album.songs.create({
-  title: 'song 3',
+  title: 'song 1',
   artist_id: bm_album.artist_id
 })
 
 song_2 = bm_album.songs.create({
-  title: 'song 3',
+  title: 'song 2',
   artist_id: bm_album.artist_id
 })
 
@@ -44,10 +44,12 @@ song_3 = bm_album.songs.create({
   artist_id: bm_album.artist_id
 })
 
-
-# song_file_1 = open('https://tinnitus-dev.s3.amazonaws.com/n4.mp3')
-# song_1.song_file.attach(io: song_file_1, filename:'n4.mp3')
-
+song_file_1 = open('https://tinnitus-seeds.s3.amazonaws.com/bm1.mp3')
+song_1.song_file.attach(io: song_file_1, filename:'bm1.mp3')
+song_file_2 = open('https://tinnitus-seeds.s3.amazonaws.com/bm2.mp3')
+song_2.song_file.attach(io: song_file_2, filename:'bm2.mp3')
+song_file_3 = open('https://tinnitus-seeds.s3.amazonaws.com/bm3.mp3')
+song_3.song_file.attach(io: song_file_3, filename:'bm3.mp3')
 
 # post = Post.first
 # file = File.open('app/assets/images/sennacy.jpg')
