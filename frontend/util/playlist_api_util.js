@@ -27,6 +27,14 @@ export const fetchAuthoredPlaylists = authorId => {
   })
 }
 
+export const addSongToPlaylist = (id, song) => {
+  return $.ajax({
+    method: 'POST',
+    url: `/api/playlists/${id}/songs`,
+    data: {song}
+  })
+}
+
 // need an edit request
 
 // export const editPlaylist = playlist => {

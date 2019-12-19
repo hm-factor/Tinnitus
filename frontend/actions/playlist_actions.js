@@ -31,18 +31,23 @@ export const createPlaylist = playlist => dispatch => {
 
 export const fetchPlaylist = playlist => dispatch => {
   return playlistUtil.fetchPlaylist(playlist)
-    .then(playlist => dispatch(recievePlaylist(playlist)));
+    .then( playlist => dispatch(recievePlaylist(playlist)));
 };
 
 export const fetchPlaylists = playlists => dispatch => {
   return playlistUtil.fetchPlaylists(playlists)
-    .then(playlists => dispatch(recievePlaylists(playlists)));
+    .then( playlists => dispatch(recievePlaylists(playlists)));
 };
 
 export const fetchAuthoredPlaylists = id => dispatch => {
   return playlistUtil.fetchAuthoredPlaylists(id)
-    .then(playlists => dispatch(recievePlaylists(playlists)))
+    .then( playlists => dispatch(recievePlaylists(playlists)));
 }
+
+export const addSongToPlaylist = (id, song) => dispatch => {
+  return playlistUtil.addSongToPlaylist(id, song)
+    .then( playlist => dispatch(recievePlaylist(playlist)));
+};
 
 export const deletePlaylist = playlistId => dispatch => {
   return playlistUtil.deletePlaylist(playlistId)

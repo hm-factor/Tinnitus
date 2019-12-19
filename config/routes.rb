@@ -14,10 +14,11 @@ Rails.application.routes.draw do
 
     resources :playlists, only: [:index, :show, :create, :destroy]
     resources :playlist_songs, only: [:create, :destroy]
+    
+    post '/playlists/:id/songs', to: 'playlists#add_song'
 
     # collection do 
     # get :fetch_collection, to: "collection#fetch_collection", as: "fetch_collection"
-
     
     get '/collection/albums', to: 'albums#index'
     get '/collection/songs', to: 'songs#index'

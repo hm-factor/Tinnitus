@@ -16,8 +16,14 @@ class Playlist < ApplicationRecord
     primary_key: :id,
     class_name: :User
 
+  has_many :playlist_songs
+  has_many :songs, through: :playlist_songs
   has_many :likes, as: :likeable
 
   validates :title, presence: true, uniqueness: { scope: :author_id }
   validates :privacy, inclusion: { in: [true, false] }
+
+  def add_song(song)
+    self.playlist_songs.create({id: song.id})
+  end
 end

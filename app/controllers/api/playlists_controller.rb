@@ -15,13 +15,25 @@ class Api::PlaylistsController < ApplicationController
     end
   end
 
+  def add_song
+    @playlist = current_user.playlists.find(params[:id])
+    song = Song.find(params[:songId])
+
+    if @playlist
+      @playlist.add_song(song)
+      render :show
+    else
+      render json: ["An error occurred"], status: 422
+    end
+  end
+
   def show
     @playlist = Playlist.find(params[:id])
     render :show
   end
 
   def destroy
-    # @playlist = Playlist.
+    @playlist = Playlist.find(params[:id])
     @playlist.destroy
     render '/'
   end
