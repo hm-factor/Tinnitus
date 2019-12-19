@@ -19,7 +19,6 @@ class PlaylistCreate extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.closeModal();
-    debugger;
     let copyState = Object.assign({}, this.state);
     if (this.state.title.length === 0) {
       copyState.title = "New Playlist"
