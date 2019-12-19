@@ -33,13 +33,16 @@
 .fa-times, .new-playlist-title {
   color: white;
   font-size: 48px;
-  font-family: helvetica;
   margin: 24px 0;
   transition: font-size ease 0;
 }
 
 .fa-times:hover {
   font-size: 50px;
+}
+
+.new-playlist-title {
+  font-family: helvetica;
 }
 
 .new-playlist-input-box {

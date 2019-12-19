@@ -39,6 +39,11 @@ export const fetchPlaylists = playlists => dispatch => {
     .then(playlists => dispatch(recievePlaylists(playlists)));
 };
 
+export const fetchAuthoredPlaylists = id => dispatch => {
+  return playlistUtil.fetchAuthoredPlaylists(id)
+    .then(playlists => dispatch(recievePlaylists(playlists)))
+}
+
 export const deletePlaylist = playlistId => dispatch => {
   return playlistUtil.deletePlaylist(playlistId)
     .then( () => dispatch(removePlaylist()));

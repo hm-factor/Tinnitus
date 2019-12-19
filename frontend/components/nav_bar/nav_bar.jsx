@@ -14,21 +14,31 @@ class NavBar extends React.Component {
       return (
         <div className="nav-prof">
           <div className="arrows">
-            <span className="arrow">A1</span>
-            <span className="arrow">A2</span>
+            <div className="arrow">
+              <i className="fas fa-chevron-left"></i>
+            </div>
+            <div className="arrow">
+              <i className="fas fa-chevron-right"></i>
+            </div>
           </div>
           <div className="nav-user-logout">
             <div className="nav-user">{user.username}</div>
-            <button onClick={logout}>LOGOUT</button>
+            <button onClick={logout} className="logout-btn">
+              <i className="fas fa-power-off"></i>
+            </button>
           </div>
         </div>
       );
     } else {
       return (
-        <div className="nav-links">
+        <div className="nav-prof">
           <div className="arrows">
-            <span className="A1">A1</span>
-            <span className="A2">A2</span>
+            <div className="arrow">
+              <i className="fas fa-chevron-left"></i>
+            </div>
+            <div className="arrow">
+              <i className="fas fa-chevron-right"></i>
+            </div>
           </div>
           <div className="nav-forms">
             <div className="nav-sign">

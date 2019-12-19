@@ -20,6 +20,14 @@ export const fetchPlaylists = () => {
   })
 } 
 
+export const fetchAuthoredPlaylists = authorId => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/users/${authorId}/playlists`,
+    data: { playlists }
+  })
+}
+
 // need an edit request
 
 // export const editPlaylist = playlist => {

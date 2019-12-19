@@ -4,8 +4,15 @@
   height: 48px;
   /* min-width: 490px; */
   width: 100%;
-  justify-content: space-between;
   padding: 16px 24px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-prof {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .nav-links {
@@ -15,23 +22,35 @@
 }
 
 .arrows {
-  background-color: black;
+  width: 84px;
+  display: flex;
+  justify-content: space-between;
   color: white;
   padding: 5px;
   border-radius: 50px;
 }
 
 .arrow {
+  display: flex;
+  align-items: center;
   background-color: black;
   color: white;
-  /* padding: 5px; */
   border-radius: 50px;
-  height: 22px;
-  width: 22px;
+  height: 34px;
+  width: 34px;
+}
+
+.fa-chevron-left {
+  margin-left: 11px;
+}
+
+.fa-chevron-right {
+  margin-left: 13px;
 }
 
 .nav-forms {
   display: flex;
+  align-items: center;
 }
 
 .nav-sign > a {
@@ -46,4 +65,33 @@
   background-color: white;
   border-radius: 20px;
   color: black;
+}
+
+.nav-user-logout {
+  width: 140px;
+  height: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  border-radius: 50px;
+  color: white;
+}
+
+.nav-user {
+  font-family: helvetica;
+  margin: 10px;
+}
+
+.logout-btn {
+  height: 25px;
+  border-radius: 50px;
+  border: none;
+  margin-right: 5px;
+  outline: none;
+}
+
+.logout-btn:hover {
+  background-color: black;
+  color: white;
 }

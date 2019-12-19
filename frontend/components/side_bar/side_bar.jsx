@@ -1,10 +1,14 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import PlaylistCreateContainer from "../music/playlist_create_container";
+import { fetchAuthoredPlaylists } from '../../actions/playlist_actions';
 
 class SideBar extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  componentDidMount() {
+    fetchAuthoredPlaylists(this.props.userId)
   }
   
   render () {
