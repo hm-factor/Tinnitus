@@ -90,6 +90,7 @@
 .new-playlist-input-box::placeholder {
   font-size: 48px;
   color: #535353;
+  font-weight: 700;
 }
 
 .new-playlist-btns {
