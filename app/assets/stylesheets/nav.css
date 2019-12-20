@@ -1,18 +1,20 @@
 .nav-cont {
   z-index: 2;
   background-color: #121212;
-  height: 48px;
+  height: 80px;
   /* min-width: 490px; */
   width: 100%;
   padding: 16px 24px;
   display: flex;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .nav-prof {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .nav-links {
@@ -55,6 +57,7 @@
 .nav-forms {
   display: flex;
   align-items: center;
+  /* margin-right: 35px; */
 }
 
 .nav-sign, .nav-log {
@@ -63,7 +66,7 @@
 }
 
 .nav-log:hover, .nav-sign:hover {
-    transition: none 33ms;
+  transition: none 33ms;
   transition-property: all;
   transform: scale(1.06);
 }

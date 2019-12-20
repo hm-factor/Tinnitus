@@ -5,9 +5,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    
     <script src="https://kit.fontawesome.com/e9ba7999ee.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+
+    <%= favicon_link_tag asset_path('/images/icon.svg') %>
   </head>
 
   <body>

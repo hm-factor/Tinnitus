@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-  before_action :ensure_logged_in
+  # before_action :ensure_logged_in
 
   def index 
     @users = User.all

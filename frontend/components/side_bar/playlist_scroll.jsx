@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { PlaylistShowContainer } from '../../components/music/playlist_show_container';
 
 class PlaylistScroll extends React.Component {
   constructor(props) {

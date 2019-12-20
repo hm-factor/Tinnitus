@@ -9,6 +9,7 @@ class SideBar extends React.Component {
 
   componentDidMount() {
     this.props.fetchAuthoredPlaylists(this.props.userId);
+    this.props.fetchSongs();
   }
   
   render () {
@@ -56,7 +57,7 @@ class SideBar extends React.Component {
               </NavLink>
             </li>
             <li className="side-lib">
-              <NavLink className="side-nav-link" exact to="/collection/playlists">
+              <NavLink className="side-nav-link" exact to="/collection">
                 <i className="fas fa-book"></i>
                 <span className="nav-li-text">Collection</span>
               </NavLink>

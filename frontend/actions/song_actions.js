@@ -17,8 +17,8 @@ const receiveSong = song => {
   }
 }
 
-export const fetchSongs = songs => dispatch => {
-  return songUtil.fetchSongs(songs)
+export const fetchSongs = () => dispatch => {
+  return songUtil.fetchSongs()
     .then( songs => dispatch(receiveSongs(songs)))
 }
 
