@@ -8,7 +8,6 @@ const usersReducer = (state = {}, action) => {
       return Object.assign({}, state, { [action.user.id]: action.user });
     case RECEIVE_PLAYLIST:
       let newPlaylistArr = state.playlists.concat(action.playlist.id);
-      debugger;
       return Object.assign({}, state, { playlists: newPlaylistArr })
     case RECEIVE_PLAYLISTS:
       return Object.assign({}, state, { playlists: Object.keys(action.playlists) });

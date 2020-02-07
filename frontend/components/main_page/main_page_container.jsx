@@ -10,7 +10,6 @@ import PlaylistShowContainer from "../music/playlist_show_container";
 const MainPageContainer = state => {
   // let collectionSongs;
   // if (state.history.location.pathname === "/collection") {
-  //   debugger
   //   collectionSongs = <SongIndexContainer />
   // }
   return (

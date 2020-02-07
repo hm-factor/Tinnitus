@@ -13,9 +13,7 @@ class SongIndex extends React.Component {
   render () {
     const { songs, addSongToPlaylist } = this.props;
     if (!songs.length) return <div></div>;
-    debugger;
     const songLis = songs.map( song => {
-      debugger;
       return (
         <li key={song.id}>
           {song.title}
