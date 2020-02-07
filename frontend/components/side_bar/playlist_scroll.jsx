@@ -5,6 +5,12 @@ import { PlaylistShowContainer } from '../../components/music/playlist_show_cont
 class PlaylistScroll extends React.Component {
   constructor(props) {
     super(props);
+
+    this.handleRightClick = this.handleRightClick.bind(this);
+  }
+
+  handleRightClick(e) {
+    
   }
 
   render () {
@@ -13,12 +19,13 @@ class PlaylistScroll extends React.Component {
     let playlistLis = userPlaylistIds.map( playlistId => {
       return (
         <li key={playlistId} className="playlist-li">
-          <Link to={`/playlists/${playlistId}`} className="playlist-link">
+          <Link to={`/playlists/${playlistId}`} onContextMenu={this.handleRightClick} className="playlist-link">
             {playlists[playlistId].title}
           </Link>
         </li>
       );
     })
+
     return (
       <div className="scroll-container">
         <ul className="playlist-ul">
