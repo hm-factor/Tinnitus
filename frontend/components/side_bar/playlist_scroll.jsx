@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PlaylistDropdown from './playlist_dropdown';
 import { PlaylistShowContainer } from '../../components/music/playlist_show_container';
 
 class PlaylistScroll extends React.Component {
@@ -10,9 +11,10 @@ class PlaylistScroll extends React.Component {
   }
 
   handleRightClick(e) {
-    
+    // return <Redirect to={'/'} />
+    e.preventDefault();
   }
-
+  
   render () {
     const { userPlaylistIds, playlists } = this.props;
     if (!userPlaylistIds) return null;
@@ -21,6 +23,7 @@ class PlaylistScroll extends React.Component {
         <li key={playlistId} className="playlist-li">
           <Link to={`/playlists/${playlistId}`} onContextMenu={this.handleRightClick} className="playlist-link">
             {playlists[playlistId].title}
+            <PlaylistDropdown />
           </Link>
         </li>
       );
