@@ -1,4 +1,13 @@
-.playlist-dropdown {
+.playlist-dropdown.off > .playlist-dropdown-content {
   display: none;
 }
 
+.playlist-dropdown.on {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  background-color: lightgrey;
+  width: 20px;
+  height: 45px;
+  display: flex;
+}

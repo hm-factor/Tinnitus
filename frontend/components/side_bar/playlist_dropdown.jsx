@@ -5,11 +5,15 @@ export default class PlaylistDropdown extends React.Component {
     super(props);
   };
 
+  toggleDropdownClass() {
+
+  }
+
   render() {
     return (
-      <ul className="playlist-dropdown">
-        <li>Delete</li>
-        <li>Rename</li>
+      <ul className="playlist-dropdown off">
+        <li className="playlist-dropdown-content">Delete</li>
+        <li className="playlist-dropdown-content">Rename</li>
       </ul>
     )
   };
