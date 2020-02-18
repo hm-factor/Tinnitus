@@ -9,17 +9,20 @@ class MusicPlayer extends React.Component {
   render () {
 
     return (
-      <div>
-        <div className="left-side-musicplayer musicplayer">
-          <p className="song-title-musicplayer">Song Title</p>
-          <i>Like</i>
-          <p className="artist-musicplayer">Artist</p>
+      <div className="musicplayer">
+        <div className="left-side-musicplayer">
+          <div className="title-artist">
+            <p className="song-title-musicplayer">Song Title</p>
+            <p className="artist-musicplayer">Artist</p>
+          </div>
+          <i className="far fa-heart"></i>
+          {/* <i className="fas fa-heart"></i> */}
         </div>
-        <div className="middle-musicplayer musicplayer">
+        <div className="middle-musicplayer">
 
         </div>
-        <div className="right-side-musicplayer musicplayer">
-
+        <div className="right-side-musicplayer">
+          <i></i>
         </div>
       </div>
     )

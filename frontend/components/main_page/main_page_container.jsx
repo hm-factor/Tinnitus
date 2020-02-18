@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBarContainer from "../nav_bar/nav_bar_container";
 import SideBarContainer from '../side_bar/side_bar_container';
+import MusicPlayerContainer from '../music_player/music_player_container';
 
 import { Route, Link} from 'react-router-dom';
 import { ProtectedRoute, AuthRoute } from '../../util/route_util';
@@ -29,6 +30,9 @@ const MainPageContainer = state => {
         <div className="playlist-show">
           <Route path="/playlists/:id" component={PlaylistShowContainer} />
         </div>
+      </div>
+      <div className="main-bottom">
+        <MusicPlayerContainer />
       </div>
     </div>
   );
