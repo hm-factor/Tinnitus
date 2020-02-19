@@ -12,11 +12,13 @@
 .playlist-li {
   display: flex;
   align-items: center;
+  outline: none;
   height: 32px;
   padding: 0 24px;
 }
 
 .playlist-link {
+  outline: none;
   text-decoration: none;
   color: #b3b3b3;
   font-family: helvetica;
@@ -26,4 +28,5 @@
 .playlist-link:focus,
 .playlist-link:hover {
   color: white;
+  outline: none;
 }

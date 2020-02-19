@@ -10,7 +10,6 @@ class PlaylistShow extends React.Component {
     const { playlist, songs, user } = this.props;
     if (!playlist) return null;
     const songLis = Object.values(songs).map( song => {
-      debugger;
       return (
         <li key={song.id} className="song-li">
           <div className="song-li-left">

@@ -1,0 +1,16 @@
+.musicplayer {
+  height: 90px;
+  width: 100%;
+  background-color: #282828;
+  display: flex;
+}
+
+.left-side-musicplayer {
+  width: 230px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.title-artist {
+  display: block;
+}

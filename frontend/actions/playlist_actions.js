@@ -18,9 +18,10 @@ const recievePlaylist = playlist => {
   };
 };
 
-const removePlaylist = () => {
+const removePlaylist = playlist => {
   return {
-    type: REMOVE_PLAYLIST
+    type: REMOVE_PLAYLIST,
+    playlist
   };
 };
 
@@ -51,5 +52,5 @@ export const addSongToPlaylist = (id, song) => dispatch => {
 
 export const deletePlaylist = playlistId => dispatch => {
   return playlistUtil.deletePlaylist(playlistId)
-    .then( () => dispatch(removePlaylist()));
+    .then( id => dispatch(removePlaylist(id)));
 };

@@ -3,7 +3,6 @@ import PlaylistShow from './playlist_show';
 import { addSongToPlaylist } from '../../actions/playlist_actions';
 
 const msp = (state, ownProps) => {
-  debugger;
   return {
     playlist: state.entities.playlists[ownProps.match.params.id],
     songs: state.entities.songs,
