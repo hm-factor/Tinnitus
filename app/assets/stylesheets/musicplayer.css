@@ -11,6 +11,13 @@
   justify-content: space-evenly;
 }
 
+.right-side-musicplayer {
+  position: absolute;
+  right: 10px;
+  width: 300px;
+  height: inherit;
+}
+
 .title-artist {
   display: block;
 }
