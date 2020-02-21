@@ -1,12 +1,17 @@
 import { connect } from 'react-redux';
 import MusicPlayer from './music_player';
+import { fetchSongs, fetchSong } from '../../actions/song_actions';
 
 const msp = state => {
-  return null;
+  return {
+    songs: state.entities.songs
+  };
 };
 
 const mdp = dispatch => {
-  return null;
+  return {
+    fetchSongs: () => dispatch(fetchSongs())
+  }
 };
 
 export default connect(msp, mdp)(MusicPlayer);
