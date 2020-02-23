@@ -7,19 +7,13 @@ class MusicPlayer extends React.Component {
     super(props);
 
     this.pressAudioPlayer = this.pressAudioPlayer.bind(this);
-  }
+  };
 
   componentDidMount() {
     this.props.fetchSongs();
-  }
+  };
 
-  pressAudioPlayer() {
-    let song = this.props.songs[1809];
-    const player = new Tone.Player({
-      url: song.songUrl,
-      autostart: true
-    }).toMaster();
-
+  pressAudioPlayer(player) {
     if (player.state === 'started') {
       player.stop();
     } else if (player.state === 'stopped') {
@@ -30,19 +24,25 @@ class MusicPlayer extends React.Component {
   render () {
     let song = this.props.songs[1809];
 
-    let playbutton = 'play';
-
-    if (player.state === 'started') {
-      let playButton = 'pause';
-    } else if (player.state === 'stopped') {
-      let playButton = 'play';
-    };
-
     if (song === undefined) {
-      return (
-        <div></div>
-      )
+      return <div></div>;
     } else {
+      const player = new Tone.Player({
+        url: song.songUrl,
+        autostart: true
+      }).toMaster();
+
+      const buffer = new Tone.Buffer(song.songUrl);
+      buffer.load(song.songUrl);
+
+      let playButton = "play";
+
+      if (player.state === "started") {
+        playButton = "pause";
+      } else if (player.state === "stopped") {
+        playButton = "play";
+      }
+
       return (
         <div className="musicplayer">
           <div className="left-side-musicplayer">
@@ -54,12 +54,14 @@ class MusicPlayer extends React.Component {
             {/* <i className="fas fa-heart"></i> */}
           </div>
           <div className="middle-musicplayer">
-            {/* <i className="fas fa-random"></i>
-            <i className="fas fa-step-backward"></i> */}
-            <i className={`fas fa-${playButton}`} onClick={this.pressAudioPlayer}></i>
-            {/* <i className="fas fa-pause"></i>
+            <i className="fas fa-random"></i>
+            <i className="fas fa-step-backward"></i>
+            <i
+              className={`fas fa-${playButton}`}
+              onClick={this.pressAudioPlayer(player)}
+            ></i>
             <i className="fas fa-step-forward"></i>
-            <i className="fas fa-repeat"></i> */}
+            <i className="fas fa-repeat"></i>
           </div>
           <div className="right-side-musicplayer">
             <i className="fas fa-volume-up"></i>
@@ -68,8 +70,9 @@ class MusicPlayer extends React.Component {
             <i className="fas fa-volume-mute"></i>
           </div>
         </div>
-    )}
-  }
-}
+      );
+    };
+  };
+};
 
 export default MusicPlayer;
