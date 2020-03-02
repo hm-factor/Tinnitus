@@ -13,12 +13,13 @@ class MusicPlayer extends React.Component {
     this.props.fetchSongs();
   };
 
-  pressAudioPlayer(player) {
-    if (player.state === 'started') {
-      player.stop();
-    } else if (player.state === 'stopped') {
-      player.start();
-    };
+  pressAudioPlayer() {
+    console.log('play');
+  //   if (player.state === 'started') {
+  //     player.stop();
+  //   } else if (player.state === 'stopped') {
+  //     player.start();
+  //   };
   };
 
   render () {
@@ -27,21 +28,19 @@ class MusicPlayer extends React.Component {
     if (song === undefined) {
       return <div></div>;
     } else {
-      const player = new Tone.Player({
-        url: song.songUrl,
-        autostart: true
-      }).toMaster();
-
-      const buffer = new Tone.Buffer(song.songUrl);
-      buffer.load(song.songUrl);
+      // const buffer = new Tone.Buffer(song.songUrl, () => {
+      //   buffer.set(song.songUrl);
+      // });
+      // const player = new Tone.Player(song.songUrl).toMaster();
 
       let playButton = "play";
+      let volumeControl = "up";
 
-      if (player.state === "started") {
-        playButton = "pause";
-      } else if (player.state === "stopped") {
-        playButton = "play";
-      }
+      // if (player.state === "started") {
+      //   playButton = "pause";
+      // } else if (player.state === "stopped") {
+      //   playButton = "play";
+      // }
 
       return (
         <div className="musicplayer">
@@ -54,20 +53,27 @@ class MusicPlayer extends React.Component {
             {/* <i className="fas fa-heart"></i> */}
           </div>
           <div className="middle-musicplayer">
-            <i className="fas fa-random"></i>
-            <i className="fas fa-step-backward"></i>
-            <i
-              className={`fas fa-${playButton}`}
-              onClick={this.pressAudioPlayer(player)}
-            ></i>
-            <i className="fas fa-step-forward"></i>
-            <i className="fas fa-repeat"></i>
+            <div className="middle-controls">
+              <i className="fas fa-random"></i>
+              <i className="fas fa-step-backward"></i>
+              <i
+                className={`fas fa-${playButton}`}
+                onClick={this.pressAudioPlayer()}
+              ></i>
+              <i className="fas fa-step-forward"></i>
+              <i className="fas fa-redo-alt"></i>
+            </div>
+            <div className="progress-bar">
+              <input type="range" min="0" max="100" className="progress-slider"/>
+            </div>
           </div>
           <div className="right-side-musicplayer">
-            <i className="fas fa-volume-up"></i>
-            <i className="fas fa-volume-down"></i>
-            <i className="fas fa-volume-off"></i>
-            <i className="fas fa-volume-mute"></i>
+            <div className="right-controls">
+              <i className={`fas fa-volume-${volumeControl}`}></i>
+            </div>
+            <div className="volume-bar">
+              <input type="range" min="0" max="100" className="volume-slider"/>
+            </div>
           </div>
         </div>
       );
