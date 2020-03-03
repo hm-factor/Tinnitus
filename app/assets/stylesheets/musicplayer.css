@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .left-side-musicplayer {
@@ -14,16 +15,18 @@
 }
 
 .song-title-musicplayer {
-  color: #b3b3b3;
+  color: #ffffff;
 }
 
-.title-artist {
+.title-artist, .fa-heart {
   display: block;
+  color: #b3b3b3;
 }
 
 .middle-musicplayer {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   width: 40%;
   max-width: 720px;
   color: #b3b3b3;
@@ -31,6 +34,8 @@
 
 .right-side-musicplayer {
   width: 300px;
+  display: flex;
+  flex-direction: row;
 }
 
 .right-controls {
