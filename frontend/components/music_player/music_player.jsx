@@ -65,7 +65,7 @@ class MusicPlayer extends React.Component {
               <i className="fas fa-step-backward"></i>
               <i
                 className={`fas fa-${this.props.playButton}`}
-                onClick={this.onPlay(this.props.playButton)}
+                onClick={() => this.onPlay(this.props.playButton)}
               ></i>
               <i className="fas fa-step-forward"></i>
               <i className="fas fa-redo-alt"></i>
