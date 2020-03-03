@@ -4,7 +4,8 @@ import { fetchSongs, fetchSong } from '../../actions/song_actions';
 
 const msp = state => {
   return {
-    songs: state.entities.songs
+    songs: state.entities.songs,
+    playButton: "play"
   };
 };
 

@@ -7,6 +7,7 @@ class MusicPlayer extends React.Component {
     super(props);
 
     this.pressAudioPlayer = this.pressAudioPlayer.bind(this);
+    this.onPlay = this.onPlay.bind(this);
   };
 
   componentDidMount() {
@@ -22,6 +23,12 @@ class MusicPlayer extends React.Component {
   //   };
   };
 
+  onPlay(playIcon) {
+    let newIcon = (playIcon === "play") ? "pause" : "play";
+
+    this.setState({playButton: newIcon})
+  }
+
   render () {
     let song = this.props.songs[1809];
 
@@ -33,7 +40,7 @@ class MusicPlayer extends React.Component {
       // });
       // const player = new Tone.Player(song.songUrl).toMaster();
 
-      let playButton = "play";
+      // let playButton = "play";
       let volumeControl = "up";
 
       // if (player.state === "started") {
@@ -57,8 +64,8 @@ class MusicPlayer extends React.Component {
               <i className="fas fa-random"></i>
               <i className="fas fa-step-backward"></i>
               <i
-                className={`fas fa-${playButton}`}
-                onClick={this.pressAudioPlayer()}
+                className={`fas fa-${this.props.playButton}`}
+                onClick={this.onPlay(this.props.playButton)}
               ></i>
               <i className="fas fa-step-forward"></i>
               <i className="fas fa-redo-alt"></i>
