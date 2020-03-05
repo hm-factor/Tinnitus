@@ -5,9 +5,12 @@ import Tone from 'tone';
 class MusicPlayer extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      isClicked: false
+    }
 
     this.pressAudioPlayer = this.pressAudioPlayer.bind(this);
-    this.onPlay = this.onPlay.bind(this);
+    this.handlePlay = this.handlePlay.bind(this);
   };
 
   componentDidMount() {
@@ -23,10 +26,10 @@ class MusicPlayer extends React.Component {
   //   };
   };
 
-  onPlay(playIcon) {
-    let newIcon = (playIcon === "play") ? "pause" : "play";
-
-    this.setState({playButton: newIcon})
+  handlePlay(e) {
+    this.setState({
+      isClicked: !this.state.isClicked
+    })
   }
 
   render () {
@@ -40,14 +43,14 @@ class MusicPlayer extends React.Component {
       // });
       // const player = new Tone.Player(song.songUrl).toMaster();
 
-      // let playButton = "play";
-      let volumeControl = "up";
-
       // if (player.state === "started") {
       //   playButton = "pause";
       // } else if (player.state === "stopped") {
       //   playButton = "play";
       // }
+
+      let playing = this.state.isClicked ? "hidden" : "";
+      let paused = this.state.isClicked ? "" : "hidden";
 
       return (
         <div className="musicplayer">
@@ -63,23 +66,28 @@ class MusicPlayer extends React.Component {
             <div className="middle-controls">
               <i className="fas fa-random"></i>
               <i className="fas fa-step-backward"></i>
-              <i
-                className={`fas fa-${this.props.playButton}`}
-                onClick={() => this.onPlay(this.props.playButton)}
-              ></i>
+              <div id="play-pause" onClick={this.handlePlay}>
+                <i className={`fas fa-play ${playing}`}></i>
+                <i className={`fas fa-pause ${paused}`}></i>
+              </div>
               <i className="fas fa-step-forward"></i>
               <i className="fas fa-redo-alt"></i>
             </div>
             <div className="progress-bar">
-              <input type="range" min="0" max="100" className="progress-slider"/>
+              <input
+                type="range"
+                min="0"
+                max="100"
+                className="progress-slider"
+              />
             </div>
           </div>
           <div className="right-side-musicplayer">
             <div className="right-controls">
-              <i className={`fas fa-volume-${volumeControl}`}></i>
+              <i className="fas fa-volume-up"></i>
             </div>
             <div className="volume-bar">
-              <input type="range" min="0" max="100" className="volume-slider"/>
+              <input type="range" min="0" max="100" className="volume-slider" />
             </div>
           </div>
         </div>
