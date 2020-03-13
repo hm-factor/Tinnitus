@@ -104,7 +104,6 @@ class MusicPlayer extends React.Component {
               <i className="fas fa-step-forward"></i>
               <button id="redo-btn">
                 <i className="fas fa-redo-alt"></i>
-                <div className="dot"></div>
               </button>
             </div>
             <div className="progress-bar">
