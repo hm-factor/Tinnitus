@@ -59,7 +59,9 @@ class MusicPlayer extends React.Component {
               <p className="song-title-musicplayer">{song.title}</p>
               <p className="artist-musicplayer">{song.artist_id}</p>
             </div>
-            <i className="far fa-heart"></i>
+            <div>
+              <i className="far fa-heart"></i>
+            </div>
             {/* <i className="fas fa-heart"></i> */}
           </div>
           <div className="middle-musicplayer">

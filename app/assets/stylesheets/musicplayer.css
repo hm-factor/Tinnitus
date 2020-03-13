@@ -1,17 +1,20 @@
 .musicplayer {
   height: 90px;
-  width: 100%;
+  min-width: 744;
   background-color: #282828;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   flex-direction: row;
   justify-content: space-between;
 }
 
 .left-side-musicplayer {
-  width: 230px;
+  width: 350px;
   display: flex;
-  justify-content: space-evenly;
+  height: inherit;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 15px;
 }
 
 .song-title-musicplayer {
@@ -26,15 +29,48 @@
 .middle-musicplayer {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  height: inherit;
   width: 40%;
   max-width: 720px;
   color: #b3b3b3;
 }
 
+/* @media only screen and (max-width: 790px) {
+  
+  .musicplayer {
+    overflow-x: scroll;
+  }
+  
+  .middle-musicplayer {
+    width: 305px;
+  }
+
+} */
+
 .middle-controls {
   display: flex;
   flex-direction: row;
+}
+
+#play-pause {
+  padding: 8px 0;
+  border: 1px solid #b3b3b3;
+  border-radius: 500px;
+}
+
+#play-pause .fa-pause {
+  margin: 0 10px;
+}
+
+#play-pause .fa-play {
+  margin-right: 9px;
+  margin-left: 11px;
+}
+
+.fa-play, .fa-pause {
+  font-size: 14px;
 }
 
 .hidden {
@@ -42,34 +78,50 @@
 }
 
 .right-side-musicplayer {
-  width: 300px;
+  width: 350px;
   display: flex;
+  height: inherit;
+  align-items: center;
+  justify-content: flex-end;
   flex-direction: row;
+  padding-right: 15px;
 }
 
 .right-controls {
   color: #b3b3b3;
 }
 
+/* SLIDERS */
+
 .volume-slider,
 .progress-slider {
-  -webkit-appearance: none;  /* Override default CSS styles */
-  outline: none; /* Remove outline */
-  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-appearance: none; 
+  outline: none; 
+  opacity: 0.7; 
   transition: opacity .2s;
+  height: 4px;
+  background-color: #b3b3b3;
+}
+
+.volume-slider:hover,
+.progress-slider:hover {
+  height: 4px;
+
 }
 
 .volume-slider::-webkit-slider-thumb, 
 .progress-slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
-  /* appearance: none; */
-  height: 5px;
-  width: 5px; /* Set a specific slider handle width */
+  -webkit-appearance: none; 
+  appearance: none;
+  height: 12px;
+  width: 12px;
 }
 
 .volume-slider:hover::-webkit-slider-thumb,
 .progress-slider:hover::-webkit-slider-thumb {
   -webkit-appearance: button;
-  height: 5px;
-  width: 5px;
+  height: 12px;
+  width: 12px;
+  border: 0;
+  border-radius: 400;
 }

@@ -2,6 +2,14 @@
   height: 100%;
 }
 
+/* @media only screen and (max-width: 790px) {
+
+  .whole-page, .main-cont {
+    overflow-x: scroll;
+  }
+
+} */
+
 .main-cont {
   display: flex;
   height: 100%;
