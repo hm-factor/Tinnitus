@@ -76,6 +76,8 @@ class MusicPlayer extends React.Component {
       let unmuted = muteClicked ? "hidden" : "";
       let muted = muteClicked ? "" : "hidden";
 
+      let songStart = '0:00', songEnd = '0:00';
+
       return (
         <div className="musicplayer">
           <div className="left-side-musicplayer">
@@ -91,22 +93,29 @@ class MusicPlayer extends React.Component {
 
           <div className="middle-musicplayer">
             <div className="middle-controls">
-              <i className="fas fa-random"></i>
+              <button id="random-btn">
+                <i className="fas fa-random"></i>
+              </button>
               <i className="fas fa-step-backward"></i>
               <div id="play-pause" onClick={this.handlePlay}>
                 <i className={`fas fa-play ${playing}`}></i>
                 <i className={`fas fa-pause ${paused}`}></i>
               </div>
               <i className="fas fa-step-forward"></i>
-              <i className="fas fa-redo-alt"></i>
+              <button id="redo-btn">
+                <i className="fas fa-redo-alt"></i>
+                <div className="dot"></div>
+              </button>
             </div>
             <div className="progress-bar">
+              <p className="play-time">{songStart}</p>
               <input
                 type="range"
                 min="0"
                 max="100"
                 className="progress-slider"
               />
+              <p className="play-time">{songEnd}</p>
             </div>
           </div>
 
