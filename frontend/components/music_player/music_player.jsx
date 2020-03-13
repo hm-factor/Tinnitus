@@ -6,11 +6,15 @@ class MusicPlayer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isClicked: false
+      playClicked: false,
+      likeClicked: false,
+      muteClicked: false
     }
 
     this.pressAudioPlayer = this.pressAudioPlayer.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
+    this.handleLike= this.handleLike.bind(this);
+    this.handleMute= this.handleMute.bind(this);
   };
 
   componentDidMount() {
@@ -28,8 +32,20 @@ class MusicPlayer extends React.Component {
 
   handlePlay(e) {
     this.setState({
-      isClicked: !this.state.isClicked
-    })
+      playClicked: !this.state.playClicked
+    });
+  };
+
+  handleLike(e) {
+    this.setState({
+      likeClicked: !this.state.likeClicked
+    });
+  };
+
+  handleMute(e) {
+    this.setState({
+      muteClicked: !this.state.muteClicked
+    });
   }
 
   render () {
@@ -49,8 +65,16 @@ class MusicPlayer extends React.Component {
       //   playButton = "play";
       // }
 
-      let playing = this.state.isClicked ? "hidden" : "";
-      let paused = this.state.isClicked ? "" : "hidden";
+      let { playClicked, likeClicked, muteClicked } = this.state;
+
+      let playing = playClicked ? "hidden" : "";
+      let paused = playClicked ? "" : "hidden";
+
+      let unliked = likeClicked ? "hidden" : "";
+      let liked = likeClicked ? "" : "hidden";
+
+      let unmuted = muteClicked ? "hidden" : "";
+      let muted = muteClicked ? "" : "hidden";
 
       return (
         <div className="musicplayer">
@@ -59,11 +83,12 @@ class MusicPlayer extends React.Component {
               <p className="song-title-musicplayer">{song.title}</p>
               <p className="artist-musicplayer">{song.artist_id}</p>
             </div>
-            <div>
-              <i className="far fa-heart"></i>
+            <div id="like-btn" onClick={this.handleLike}>
+              <i className={`far fa-heart ${unliked}`}></i>
+              <i className={`fas fa-heart ${liked}`}></i>
             </div>
-            {/* <i className="fas fa-heart"></i> */}
           </div>
+
           <div className="middle-musicplayer">
             <div className="middle-controls">
               <i className="fas fa-random"></i>
@@ -84,9 +109,11 @@ class MusicPlayer extends React.Component {
               />
             </div>
           </div>
+
           <div className="right-side-musicplayer">
-            <div className="right-controls">
-              <i className="fas fa-volume-up"></i>
+            <div className="right-controls" onClick={this.handleMute}>
+              <i className={`fas fa-volume-up volume ${unmuted}`}></i>
+              <i className={`fas fa-volume-mute volume ${muted}`}></i>
             </div>
             <div className="volume-bar">
               <input type="range" min="0" max="100" className="volume-slider" />
