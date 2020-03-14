@@ -1,8 +1,8 @@
-.playlist-dropdown.off > .playlist-dropdown-content {
+.hidden {
   display: none;
 }
 
-.playlist-dropdown.on {
+.playlist-dropdown {
   position: absolute;
   top: 25px;
   left: 25px;

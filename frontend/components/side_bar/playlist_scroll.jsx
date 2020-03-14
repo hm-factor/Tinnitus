@@ -7,18 +7,19 @@ class PlaylistScroll extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      hidden: true
+    };
+
     this.handleRightClick = this.handleRightClick.bind(this);
   }
 
   handleRightClick(e) {
-    // return <Redirect to={'/'} />
-    debugger;
     e.preventDefault();
-    // this.props.history.push('/');
     console.log("rightclick");
-    return (
-      <PlaylistDropdown/>
-    );
+    this.setState({
+      hidden: !this.state.hidden
+    });
   }
   
   render () {
@@ -29,7 +30,7 @@ class PlaylistScroll extends React.Component {
         <li key={playlistId} className="playlist-li">
           <Link to={`/playlists/${playlistId}`} onContextMenu={this.handleRightClick} className="playlist-link">
             {playlists[playlistId].title}
-            <PlaylistDropdown />
+            <PlaylistDropdown hidden={this.state.hidden}/>
           </Link>
         </li>
       );
