@@ -10,4 +10,5 @@
   width: 20px;
   height: 45px;
   display: flex;
+  outline: none;
 }

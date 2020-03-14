@@ -12,6 +12,7 @@ class PlaylistScroll extends React.Component {
 
   handleRightClick(e) {
     // return <Redirect to={'/'} />
+    debugger;
     e.preventDefault();
     // this.props.history.push('/');
     console.log("rightclick");

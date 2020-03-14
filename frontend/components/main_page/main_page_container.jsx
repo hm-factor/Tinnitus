@@ -26,7 +26,6 @@ const MainPageContainer = state => {
           <NavBarContainer />
           {/* <Route to='/' component={NavBarContainer} /> */}
         </div>
-
         <div className="playlist-show">
           <Route path="/playlists/:id" component={PlaylistShowContainer} />
         </div>
