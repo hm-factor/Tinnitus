@@ -4,11 +4,6 @@ export default class PlaylistDropdown extends React.Component {
   constructor(props) {
     super(props);
 
-    this.toggleDropdown = this.toggleDropdown.bind(this);
-  };
-
-  toggleDropdown() {
-
   };
 
   render() {
