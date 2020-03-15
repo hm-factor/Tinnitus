@@ -4,11 +4,13 @@
 
 .playlist-dropdown {
   position: absolute;
-  top: 25px;
-  left: 25px;
-  background-color: lightgrey;
+  background-color: #282828;
   width: 200px;
   height: 90px;
   display: flex;
+  flex-direction: column;
   outline: none;
+  list-style: none;
+  border-radius: 3px;
+
 }

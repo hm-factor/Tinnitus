@@ -19,24 +19,23 @@ class PlaylistScroll extends React.Component {
 
   handleRightClick(e) {
     e.preventDefault();
-    debugger;
 
     this.setState({
       hidden: !this.state.hidden,
       dropX: e.pageX,
       dropY: e.pageY
     });
-  }
+  };
 
   handleBlur(e) {
-    e.preventDefault();
-
     if (!this.state.hidden) {
       this.setState({
-        hidden: !this.state.hidden
+        hidden: !this.state.hidden,
+        dropX: "",
+        dropY: ""
       });
     }
-  }
+  };
   
   render () {
     const { userPlaylistIds, playlists } = this.props;
