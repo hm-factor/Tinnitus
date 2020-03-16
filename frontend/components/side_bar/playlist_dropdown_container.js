@@ -4,7 +4,7 @@ import PlaylistDropdown from './playlist_dropdown';
 
 const mdp = dispatch => {
   return {
-    removePlaylist: () => dispatch(removePlaylist(id))
+    removePlaylist: () => dispatch(removePlaylist())
   };
 };
 

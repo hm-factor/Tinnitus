@@ -28,7 +28,7 @@ class PlaylistScroll extends React.Component {
   };
 
   handleBlur(e) {
-    if (!this.state.hidden && e.target.className !== "playlist-link") {
+    if (!this.state.hidden) {
       this.setState({
         hidden: !this.state.hidden,
         dropX: "",

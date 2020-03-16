@@ -14,7 +14,7 @@ export default class PlaylistDropdown extends React.Component {
         style={{left: dropX, top: dropY}} 
         className={`playlist-dropdown ${showDropdown}`}>
         <li 
-        onClick={() => removePlaylist(this.props.playlistId)}
+        onClick={removePlaylist}
         className="playlist-dropdown-content dropdown-delete">Delete</li>
         <li className="playlist-dropdown-content dropdown-rename">Rename</li>
       </ul>
