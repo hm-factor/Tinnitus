@@ -14,8 +14,8 @@ export default class PlaylistDropdown extends React.Component {
       <ul 
         style={{left: dropX, top: dropY}} 
         className={`playlist-dropdown ${showDropdown}`}>
-        <li className="playlist-dropdown-content">Delete</li>
-        <li className="playlist-dropdown-content">Rename</li>
+        <li className="playlist-dropdown-content dropdown-delete">Delete</li>
+        <li className="playlist-dropdown-content dropdown-rename">Rename</li>
       </ul>
     )
   };

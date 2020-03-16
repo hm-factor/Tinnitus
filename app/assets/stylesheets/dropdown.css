@@ -5,12 +5,23 @@
 .playlist-dropdown {
   position: absolute;
   background-color: #282828;
-  width: 200px;
-  height: 90px;
+  width: 130px;
+  height: 80px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   outline: none;
   list-style: none;
-  border-radius: 3px;
+  border-radius: 4px;
+}
 
+.playlist-dropdown-content {
+  margin: 10px 15px;
+  font-family: Helvetica, sans-serif;
+  color: #b3b3b3;
+}
+
+.dropdown-delete:hover,
+.dropdown-rename {
+  color: #ffffff;
 }
