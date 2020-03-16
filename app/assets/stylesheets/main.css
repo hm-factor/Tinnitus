@@ -73,7 +73,8 @@
   margin-bottom: 30px;
 }
 
-.playlist-play-btn {
+.playlist-play-btn,
+.playlist-delete-btn {
   height: 40px;
   width: 130px;
   border: none;
@@ -86,7 +87,8 @@
   outline: none;
 }
 
-.playlist-play-btn:hover {
+.playlist-play-btn:hover,
+.playlist-delete-btn:hover {
   transition: none 33ms;
   transition-property: all;
   transform: scale(1.06);

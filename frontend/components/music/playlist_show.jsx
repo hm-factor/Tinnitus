@@ -3,11 +3,11 @@ import React from 'react';
 class PlaylistShow extends React.Component {
   constructor(props) {
     super(props);
+  };
 
-  }
 
   render () {
-    const { playlist, songs, user } = this.props;
+    const { playlist, songs, user, deletePlaylist } = this.props;
     if (!playlist) return null;
     const songLis = Object.values(songs).map( song => {
       return (
@@ -41,6 +41,8 @@ class PlaylistShow extends React.Component {
           <p className="playlist-title">{playlist.title}</p>
           <p className="playlist-author">curated by: {playlist.author_id}</p>
           <button className="playlist-play-btn">PLAY</button>
+          <hr />
+          <button onClick={() => deletePlaylist(playlist.id)} className="playlist-delete-btn">DELETE</button>
           <p className="playlist-song-num">2019 - {Object.values(songs).length} songs</p>
         </div>
         <div className="playlist-show-right">
