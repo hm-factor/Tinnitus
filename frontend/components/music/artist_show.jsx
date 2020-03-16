@@ -6,10 +6,6 @@ class ArtistShow extends React.Component {
     super(props)
   }
 
-  // componentDidMount() {
-    
-  // }
-
   render () {
     const { name, bio, albumIds } = props.artist;
     const albumLis = albumIds.map( id => {

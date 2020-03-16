@@ -28,7 +28,7 @@ class PlaylistScroll extends React.Component {
   };
 
   handleBlur(e) {
-    if (!this.state.hidden) {
+    if (!this.state.hidden && e.target.className !== "playlist-link") {
       this.setState({
         hidden: !this.state.hidden,
         dropX: "",
@@ -39,7 +39,7 @@ class PlaylistScroll extends React.Component {
   
   render () {
     const { userPlaylistIds, playlists } = this.props;
-    
+
     if (!userPlaylistIds) return null;
     let playlistLis = userPlaylistIds.map( playlistId => {
       return (
@@ -49,14 +49,15 @@ class PlaylistScroll extends React.Component {
           onContextMenu={this.handleRightClick}
           onBlur={this.handleBlur}
         >
-          <Link to={`/playlists/${playlistId}`} className="playlist-link" onBlur={this.handleBlur}>
+          <Link to={`/playlists/${playlistId}`} className="playlist-link">
             {playlists[playlistId].title}
-            <PlaylistDropdown
-              hidden={this.state.hidden}
-              dropX={this.state.dropX}
-              dropY={this.state.dropY}
-            />
           </Link>
+          <PlaylistDropdown
+            playlistId={playlistId}
+            hidden={this.state.hidden}
+            dropX={this.state.dropX}
+            dropY={this.state.dropY}
+          />
         </li>
       );
     })

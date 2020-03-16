@@ -10,13 +10,13 @@ const msp = (state, { history, match, location }) => {
     history,
     match,
     location
-  }
-}
+  };
+};
 
 const mdp = dispatch => {
   return {
-    deletePlaylist: () => dispatch(deletePlaylist())
-  }
-}
+    deletePlaylist: () => dispatch(deletePlaylist(playlistId))
+  };
+};
 
 export default withRouter(connect(msp, mdp)(PlaylistScroll));

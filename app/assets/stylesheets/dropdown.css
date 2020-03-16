@@ -19,9 +19,10 @@
   margin: 10px 15px;
   font-family: Helvetica, sans-serif;
   color: #b3b3b3;
+  cursor: default;
 }
 
 .dropdown-delete:hover,
-.dropdown-rename {
+.dropdown-rename:hover {
   color: #ffffff;
 }
