@@ -7,14 +7,14 @@ export default class PlaylistDropdown extends React.Component {
 
   render() {
     let showDropdown = this.props.hidden ? "hidden" : "";
-    let {dropX, dropY, removePlaylist} = this.props;
-
+    let {dropX, dropY, deletePlaylist, playlistId} = this.props;
+    
     return (
       <ul 
         style={{left: dropX, top: dropY}} 
         className={`playlist-dropdown ${showDropdown}`}>
         <li 
-        onClick={removePlaylist}
+        onClick={() => deletePlaylist(playlistId)}
         className="playlist-dropdown-content dropdown-delete">Delete</li>
         <li className="playlist-dropdown-content dropdown-rename">Rename</li>
       </ul>
