@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import PlaylistDropdown from './playlist_dropdown_container';
 import { PlaylistShowContainer } from '../../components/music/playlist_show_container';
 
@@ -43,28 +43,29 @@ class PlaylistScroll extends React.Component {
     if (!userPlaylistIds) return null;
     let playlistLis = userPlaylistIds.map( playlistId => {
       return (
-        <li
-          key={playlistId}
-          className="playlist-li"
+        <NavLink
           onContextMenu={this.handleRightClick}
           onBlur={this.handleBlur}
+          to={`/playlists/${playlistId}`}
+          className="playlist-link"
+          key={playlistId}
         >
-          <Link to={`/playlists/${playlistId}`} className="playlist-link">
+          <li className="playlist-li">
             {playlists[playlistId].title}
-          </Link>
-          <PlaylistDropdown
-            playlistId={playlistId}
-            hidden={this.state.hidden}
-            dropX={this.state.dropX}
-            dropY={this.state.dropY}
-          />
-        </li>
+            <PlaylistDropdown
+              playlistId={playlistId}
+              hidden={this.state.hidden}
+              dropX={this.state.dropX}
+              dropY={this.state.dropY}
+            />
+          </li>
+        </NavLink>
       );
     })
 
     return (
       <div className="scroll-container">
-        <ul className="playlist-ul" onBlur={this.handleBlur}>
+        <ul className="playlist-ul">
           {playlistLis}
         </ul>
       </div>
