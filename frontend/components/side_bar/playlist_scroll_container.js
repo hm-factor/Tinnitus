@@ -15,7 +15,7 @@ const msp = (state, { history, match, location }) => {
 
 const mdp = dispatch => {
   return {
-    deletePlaylist: () => dispatch(deletePlaylist(playlistId))
+    deletePlaylist: (playlistId) => dispatch(deletePlaylist(playlistId))
   };
 };
 

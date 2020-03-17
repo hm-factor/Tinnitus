@@ -18,10 +18,10 @@ const recievePlaylist = playlist => {
   };
 };
 
-const removePlaylist = playlist => {
+const removePlaylist = playlistId => {
   return {
     type: REMOVE_PLAYLIST,
-    playlist
+    playlistId
   };
 };
 

@@ -1,14 +1,14 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 
 class PlaylistShow extends React.Component {
   constructor(props) {
     super(props);
   };
 
-
   render () {
     const { playlist, songs, user, deletePlaylist } = this.props;
-    if (!playlist) return null;
+    if (!playlist) return <Redirect to="/" />;
     const songLis = Object.values(songs).map( song => {
       return (
         <li key={song.id} className="song-li">
