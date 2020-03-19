@@ -27,7 +27,7 @@ const MainPageContainer = state => {
           {/* <Route to='/' component={NavBarContainer} /> */}
         </div>
         <div className="playlist-show">
-          <Route path="/playlists/:id" component={PlaylistShowContainer} />
+          <AuthRoute path="/playlists/:id" component={PlaylistShowContainer} />
         </div>
       </div>
       <div className="main-bottom">
