@@ -3,7 +3,7 @@ import NavBarContainer from "../nav_bar/nav_bar_container";
 import SideBarContainer from '../side_bar/side_bar_container';
 import MusicPlayerContainer from '../music_player/music_player_container';
 
-import { Route, Link} from 'react-router-dom';
+import { Route, Link, Switch } from 'react-router-dom';
 import { ProtectedRoute, AuthRoute } from '../../util/route_util';
 import PlaylistShowContainer from "../music/playlist_show_container";
 // import SongIndexContainer from '../../components/music/song_index_container';
