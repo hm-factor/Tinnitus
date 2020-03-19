@@ -15,7 +15,7 @@ class PlaylistScroll extends React.Component {
 
     this.handleRightClick = this.handleRightClick.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
-  }
+  };
 
   handleRightClick(e) {
     e.preventDefault();
@@ -69,8 +69,8 @@ class PlaylistScroll extends React.Component {
           {playlistLis}
         </ul>
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default PlaylistScroll;
