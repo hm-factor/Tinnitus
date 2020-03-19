@@ -1,10 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
-  }
+
+    // this.onLogout = this.onLogout.bind(this);
+  };
+
+  // onLogout() {
+  //   debugger;
+  //   let {logout} = this.props;
+
+  //   logout;
+  //   return (
+  //     <Redirect to='/' />
+  //   )
+  // }
 
   render() {
     const { user, logout } = this.props;
@@ -49,8 +61,8 @@ class NavBar extends React.Component {
           </div>
         </div>
       );
-    }
-  }
-}
+    };
+  };
+};
 
 export default NavBar;
