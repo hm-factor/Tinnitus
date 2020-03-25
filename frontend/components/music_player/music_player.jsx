@@ -11,7 +11,6 @@ class MusicPlayer extends React.Component {
       muteClicked: false
     }
 
-    this.pressAudioPlayer = this.pressAudioPlayer.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
     this.handleLike= this.handleLike.bind(this);
     this.handleMute= this.handleMute.bind(this);
@@ -19,18 +18,31 @@ class MusicPlayer extends React.Component {
 
   componentDidMount() {
     this.props.fetchSongs();
-  };
-
-  pressAudioPlayer() {
-    console.log('play');
-  //   if (player.state === 'started') {
-  //     player.stop();
-  //   } else if (player.state === 'stopped') {
-  //     player.start();
-  //   };
+    let song = this.props.songs[1809];
+    this.setState({
+      currentSong: song
+    })
   };
 
   handlePlay(e) {
+    // let song = this.props.songs[1809];
+    // const player = new Tone.Player(song.songUrl).toMaster();
+    // Tone.Buffer.on("load", () => {
+    //   if (this.state.playClicked === true) {
+    //     player.start();
+    //   } else {
+    //     player.stop();
+    //   };
+    // });
+
+    
+    if (this.state.playClicked === false) {
+      const audioElement = new Audio(this.state.currentSong.songUrl);
+      audioElement.play();
+    } else {
+      audioElement.pause();
+    };
+
     this.setState({
       playClicked: !this.state.playClicked
     });
@@ -54,16 +66,8 @@ class MusicPlayer extends React.Component {
     if (song === undefined) {
       return <div></div>;
     } else {
-      // const buffer = new Tone.Buffer(song.songUrl, () => {
-      //   buffer.set(song.songUrl);
-      // });
       // const player = new Tone.Player(song.songUrl).toMaster();
-
-      // if (player.state === "started") {
-      //   playButton = "pause";
-      // } else if (player.state === "stopped") {
-      //   playButton = "play";
-      // }
+      
 
       let { playClicked, likeClicked, muteClicked } = this.state;
 
