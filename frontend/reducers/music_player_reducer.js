@@ -33,4 +33,6 @@ const musicPlayerReducer = (state = emptyState, action) => {
     default:
       return state;
   }
-}
+};
+
+export default musicPlayerReducer;
