@@ -1,12 +1,22 @@
 import { connect } from 'react-redux';
 import MusicPlayer from './music_player';
-import { fetchSongs, fetchSong } from '../../actions/song_actions';
+import { fetchSongs } from '../../actions/song_actions';
 
-const msp = state => {
+const msp = ({musicPlayer}) => {
+  let {
+    currentSong,
+    isPlaying,
+    songTime,
+    songQueue,
+    songHistory
+  } = musicPlayer;
+
   return {
-    songs: state.entities.songs,
-    currentSong: "",
-    currentSongLength: ""
+    currentSong,
+    isPlaying,
+    songTime,
+    songQueue,
+    songHistory
   };
 };
 

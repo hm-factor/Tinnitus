@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Tone from 'tone';
 
 class MusicPlayer extends React.Component {
   constructor(props) {
@@ -18,30 +17,9 @@ class MusicPlayer extends React.Component {
 
   componentDidMount() {
     this.props.fetchSongs();
-    let song = this.props.songs[1809];
-    this.setState({
-      currentSong: song
-    })
   };
 
   handlePlay(e) {
-    // let song = this.props.songs[1809];
-    // const player = new Tone.Player(song.songUrl).toMaster();
-    // Tone.Buffer.on("load", () => {
-    //   if (this.state.playClicked === true) {
-    //     player.start();
-    //   } else {
-    //     player.stop();
-    //   };
-    // });
-
-    
-    if (this.state.playClicked === false) {
-      const audioElement = new Audio(this.state.currentSong.songUrl);
-      audioElement.play();
-    } else {
-      audioElement.pause();
-    };
 
     this.setState({
       playClicked: !this.state.playClicked
@@ -61,15 +39,11 @@ class MusicPlayer extends React.Component {
   }
 
   render () {
-    let song = this.props.songs[1809];
-
-    if (song === undefined) {
+    if (this.props.currentSong === undefined) {
       return <div></div>;
     } else {
-      // const player = new Tone.Player(song.songUrl).toMaster();
-      
-
       let { playClicked, likeClicked, muteClicked } = this.state;
+      let { currentSong } = this.props;
 
       let playing = playClicked ? "hidden" : "";
       let paused = playClicked ? "" : "hidden";
@@ -86,8 +60,8 @@ class MusicPlayer extends React.Component {
         <div className="musicplayer">
           <div className="left-side-musicplayer">
             <div className="title-artist">
-              <p className="song-title-musicplayer">{song.title}</p>
-              <p className="artist-musicplayer">{song.artist_id}</p>
+              <p className="song-title-musicplayer">{currentSong.title}</p>
+              <p className="artist-musicplayer">{currentSong.artist_id}</p>
             </div>
             <div id="like-btn" onClick={this.handleLike}>
               <i className={`far fa-heart ${unliked}`}></i>
