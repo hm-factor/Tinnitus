@@ -45,8 +45,8 @@ export const fetchAuthoredPlaylists = id => dispatch => {
     .then( playlists => dispatch(recievePlaylists(playlists)));
 }
 
-export const addSongToPlaylist = (id, song) => dispatch => {
-  return playlistUtil.addSongToPlaylist(id, song)
+export const addSongToPlaylist = (playlistId, songId) => dispatch => {
+  return playlistUtil.addSongToPlaylist(playlistId, songId)
     .then( playlist => dispatch(recievePlaylist(playlist)));
 };
 
