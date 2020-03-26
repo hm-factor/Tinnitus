@@ -1,16 +1,30 @@
 import { connect } from 'react-redux';
 import MusicPlayer from './music_player';
-import { fetchSongs, fetchSong } from '../../actions/song_actions';
+import { playSong, pauseSong, togglePlay } from '../../actions/music_player_actions';
 
-const msp = state => {
+const msp = ({musicPlayer}) => {
+  let {
+    currentSong,
+    isPlaying,
+    songTime,
+    songQueue,
+    songHistory
+  } = musicPlayer;
+
   return {
-    songs: state.entities.songs
+    currentSong,
+    isPlaying,
+    songTime,
+    songQueue,
+    songHistory
   };
 };
 
 const mdp = dispatch => {
   return {
-    fetchSongs: () => dispatch(fetchSongs())
+    playSong: (song) => dispatch(playSong(song)),
+    pauseSong: () => dispatch(pauseSong()),
+    togglePlay: () => dispatch(togglePlay())
   }
 };
 
