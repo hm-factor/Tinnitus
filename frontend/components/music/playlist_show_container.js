@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import PlaylistShow from './playlist_show';
 import { addSongToPlaylist, deletePlaylist } from '../../actions/playlist_actions';
+import { playSong } from '../../actions/music_player_actions';
 
 const msp = (state, ownProps) => {
   return {
@@ -13,7 +14,8 @@ const msp = (state, ownProps) => {
 const mdp = dispatch => {
   return {
     addSongToPlaylist: (id, song) => dispatch(addSongToPlaylist(id, song)),
-    deletePlaylist: (id) => dispatch(deletePlaylist(id))
+    deletePlaylist: (id) => dispatch(deletePlaylist(id)),
+    playSong: (song) => dispatch(playSong(song))
   };
 };
 

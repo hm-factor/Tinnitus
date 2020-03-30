@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import SongElementContainer from './song_element_container';
 
 class PlaylistShow extends React.Component {
   constructor(props) {
@@ -11,15 +12,12 @@ class PlaylistShow extends React.Component {
     if (!playlist) return <Redirect to="/" />;
     const songLis = Object.values(songs).map( song => {
       return (
-        <li key={song.id} className="song-li">
+        <li key={song.id} className="song-li" onClick={() => this.props.playSong(song)}>
           <div className="song-li-left">
             <div className="song-li-note">
               <i className="fas fa-music"></i>
             </div>
-            <div className="song-info">
-              <div className="song-li-title">{song.title}</div>
-              <div className="song-li-artist">{song.artist_id}</div>
-            </div>
+              <SongElementContainer id={song.id}/>
           </div>
           <div className="song-li-right">
             <div className="song-li-options">

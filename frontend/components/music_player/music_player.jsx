@@ -6,7 +6,7 @@ class MusicPlayer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      playClicked: false,
+      isPlaying: this.props.isPlaying,
       likeClicked: false,
       muteClicked: false
     }
@@ -18,21 +18,18 @@ class MusicPlayer extends React.Component {
   };
 
   componentDidMount() {
-    this.props.fetchSongs();
+
   };
 
   pressAudioPlayer() {
     console.log('play');
-  //   if (player.state === 'started') {
-  //     player.stop();
-  //   } else if (player.state === 'stopped') {
-  //     player.start();
-  //   };
+
   };
 
   handlePlay(e) {
+
     this.setState({
-      playClicked: !this.state.playClicked
+      isPlaying: !this.props.isPlaying
     });
   };
 
@@ -49,26 +46,17 @@ class MusicPlayer extends React.Component {
   }
 
   render () {
-    let song = this.props.songs[1809];
+    let song = this.props.currentSong;
 
     if (song === undefined) {
       return <div></div>;
     } else {
-      // const buffer = new Tone.Buffer(song.songUrl, () => {
-      //   buffer.set(song.songUrl);
-      // });
-      // const player = new Tone.Player(song.songUrl).toMaster();
-
-      // if (player.state === "started") {
-      //   playButton = "pause";
-      // } else if (player.state === "stopped") {
-      //   playButton = "play";
-      // }
 
       let { playClicked, likeClicked, muteClicked } = this.state;
+      let { isPlaying, currentSong } = this.props;
 
-      let playing = playClicked ? "hidden" : "";
-      let paused = playClicked ? "" : "hidden";
+      let playing = isPlaying ? "hidden" : "";
+      let paused = isPlaying ? "" : "hidden";
 
       let unliked = likeClicked ? "hidden" : "";
       let liked = likeClicked ? "" : "hidden";
@@ -80,10 +68,13 @@ class MusicPlayer extends React.Component {
 
       return (
         <div className="musicplayer">
+          <audio src={currentSong.songUrl} autoplay>
+            Your browser does not support html Audio elements
+          </audio>
           <div className="left-side-musicplayer">
             <div className="title-artist">
-              <p className="song-title-musicplayer">{song.title}</p>
-              <p className="artist-musicplayer">{song.artist_id}</p>
+              <p className="song-title-musicplayer">{currentSong.title}</p>
+              <p className="artist-musicplayer">{currentSong.artist_id}</p>
             </div>
             <div id="like-btn" onClick={this.handleLike}>
               <i className={`far fa-heart ${unliked}`}></i>
