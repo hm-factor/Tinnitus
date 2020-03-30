@@ -5,7 +5,7 @@ class MusicPlayer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      playClicked: false,
+      isPlaying: this.props.isPlaying,
       likeClicked: false,
       muteClicked: false
     }
@@ -16,14 +16,14 @@ class MusicPlayer extends React.Component {
   };
 
   componentDidMount() {
-    this.props.fetchSongs();
+
   };
 
   handlePlay(e) {
-
-    this.setState({
-      playClicked: !this.state.playClicked
-    });
+    e.preventDefault();
+    let audioUnit = document.getElementById('audio');
+    this.props.isPlaying ? audioUnit.pause() : audioUnit.play();
+    this.props.togglePlay();
   };
 
   handleLike(e) {
@@ -39,14 +39,17 @@ class MusicPlayer extends React.Component {
   }
 
   render () {
-    if (this.props.currentSong === undefined) {
+    let song = this.props.currentSong;
+
+    if (song === undefined) {
       return <div></div>;
     } else {
-      let { playClicked, likeClicked, muteClicked } = this.state;
-      let { currentSong } = this.props;
 
-      let playing = playClicked ? "hidden" : "";
-      let paused = playClicked ? "" : "hidden";
+      let { likeClicked, muteClicked } = this.state;
+      let { isPlaying, currentSong } = this.props;
+
+      let playing = isPlaying ? "hidden" : "";
+      let paused = isPlaying ? "" : "hidden";
 
       let unliked = likeClicked ? "hidden" : "";
       let liked = likeClicked ? "" : "hidden";
@@ -58,6 +61,9 @@ class MusicPlayer extends React.Component {
 
       return (
         <div className="musicplayer">
+          <audio id="audio" src={currentSong.songUrl} autoPlay>
+            Your browser does not support html Audio elements
+          </audio>
           <div className="left-side-musicplayer">
             <div className="title-artist">
               <p className="song-title-musicplayer">{currentSong.title}</p>

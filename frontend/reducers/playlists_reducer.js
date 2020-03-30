@@ -6,13 +6,15 @@ import {
 
 const playlistsReducer = (state = {}, action) => {
   Object.freeze(state);
+  const newState = Object.assign({}, state);
   switch (action.type) {
     case RECEIVE_PLAYLISTS:
       return Object.assign({}, state, action.playlists );
     case RECEIVE_PLAYLIST:
-      return Object.assign({}, state, { [action.playlist.id]: action.playlist, songs: action.playlist.songs });
+      const { playlist } = action;
+      newState[playlist.id] = playlist;
+      return newState;
     case REMOVE_PLAYLIST:
-      let newState = Object.assign({}, state);
       delete newState[action.playlistId]
       return newState;
     default:

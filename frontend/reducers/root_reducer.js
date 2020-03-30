@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import sessionReducer from './session_reducer';
-import entitiesReducer from './entities_reducer';
-import musicPlayerReducer from './music_player_reducer';
-import errorsReducer from './session_errors_reducer';
-import uiReducer from './ui_reducer';
+import sessionReducer from '../reducers/session_reducer';
+import entitiesReducer from '../reducers/entities_reducer';
+import musicPlayerReducer from '../reducers/music_player_reducer';
+import errorsReducer from '../reducers/session_errors_reducer';
+import uiReducer from '../reducers/ui_reducer';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
