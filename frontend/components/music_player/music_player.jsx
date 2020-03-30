@@ -24,7 +24,6 @@ class MusicPlayer extends React.Component {
     let audioUnit = document.getElementById('audio');
     this.props.isPlaying ? audioUnit.pause() : audioUnit.play();
     this.props.togglePlay();
-
   };
 
   handleLike(e) {

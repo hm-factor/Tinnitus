@@ -4,6 +4,7 @@ User.destroy_all
 Artist.destroy_all
 Album.destroy_all
 Song.destroy_all
+Playlist.destroy_all
 
 demoUser = User.create!({
   username: "Guest", 
@@ -51,37 +52,15 @@ song_2.song_file.attach(io: song_file_2, filename:'bm2.mp3')
 song_file_3 = open('https://tinnitus-seeds.s3.amazonaws.com/bm3.mp3')
 song_3.song_file.attach(io: song_file_3, filename:'bm3.mp3')
 
+demoPlaylist.add_song(song_1)
+demoPlaylist.add_song(song_2)
+demoPlaylist.add_song(song_3)
+
 # post = Post.first
 # file = File.open('app/assets/images/sennacy.jpg')
 # post.photo.attach(io: file, filename: 'sennacy.jpg')
 # post.photo.attached? # => true
 
 
-### FAKER ###
 
-# 5.times do
-#  Artist.create({
-#    name: Faker::Music::RockBand.unique.name,
-#    bio: Faker::Movies::StarWars.wookie_sentence
-#  })
-# end
-
-# Artist.all.each do |artist|
-#  3.times do
-#    artist.albums.create({
-#      title: Faker::Movies::StarWars.unique.call_sign,
-#      year: rand(1900..2020)
-#    })
-#  end
-# end
-  
-# Album.all.each do |album|
-#   7.times do 
-#     album.songs.create({
-#       title: Faker::Movies::StarWars.specie,
-#       album_id: album.id,
-#       artist_id: album.artist_id
-#     })
-#   end
-# end
 
