@@ -19,16 +19,12 @@ class MusicPlayer extends React.Component {
 
   };
 
-  pressAudioPlayer() {
-    console.log('play');
-
-  };
-
   handlePlay(e) {
+    e.preventDefault();
+    let audioUnit = document.getElementById('audio');
+    this.props.isPlaying ? audioUnit.pause() : audioUnit.play();
+    this.props.togglePlay();
 
-    this.setState({
-      isPlaying: !this.props.isPlaying
-    });
   };
 
   handleLike(e) {
@@ -50,7 +46,7 @@ class MusicPlayer extends React.Component {
       return <div></div>;
     } else {
 
-      let { playClicked, likeClicked, muteClicked } = this.state;
+      let { likeClicked, muteClicked } = this.state;
       let { isPlaying, currentSong } = this.props;
 
       let playing = isPlaying ? "hidden" : "";
@@ -66,7 +62,7 @@ class MusicPlayer extends React.Component {
 
       return (
         <div className="musicplayer">
-          <audio src={currentSong.songUrl} autoPlay>
+          <audio id="audio" src={currentSong.songUrl} autoPlay>
             Your browser does not support html Audio elements
           </audio>
           <div className="left-side-musicplayer">
