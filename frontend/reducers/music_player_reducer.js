@@ -17,7 +17,6 @@ const musicPlayerReducer = (state = emptyState, action) => {
   let newState = Object.assign({}, state);
   switch (action.type) {
     case PLAY_SONG:
-      console.log(newState.songHistory);
       newState.currentSong = action.song;
       newState.isPlaying = true;
       newState.songTime = action.song.duration;

@@ -68,7 +68,7 @@ class MusicPlayer extends React.Component {
 
       return (
         <div className="musicplayer">
-          <audio src={currentSong.songUrl} autoplay>
+          <audio src={currentSong.songUrl} autoPlay>
             Your browser does not support html Audio elements
           </audio>
           <div className="left-side-musicplayer">
