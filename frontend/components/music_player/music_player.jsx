@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Tone from 'tone';
 
 class MusicPlayer extends React.Component {
   constructor(props) {
@@ -11,7 +10,6 @@ class MusicPlayer extends React.Component {
       muteClicked: false
     }
 
-    this.pressAudioPlayer = this.pressAudioPlayer.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
     this.handleLike= this.handleLike.bind(this);
     this.handleMute= this.handleMute.bind(this);
