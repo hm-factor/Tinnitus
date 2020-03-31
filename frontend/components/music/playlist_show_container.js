@@ -13,7 +13,7 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => {
   return {
-    addSongToPlaylist: (id, song) => dispatch(addSongToPlaylist(id, song)),
+    addSongToPlaylist: (playlistId, songId) => dispatch(addSongToPlaylist(playlistId, songId)),
     deletePlaylist: (id) => dispatch(deletePlaylist(id)),
     playSong: (song) => dispatch(playSong(song))
   };
