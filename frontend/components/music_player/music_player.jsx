@@ -82,7 +82,7 @@ class MusicPlayer extends React.Component {
               </button>
               <i className="fas fa-step-backward"></i>
               <div id="play-pause" onClick={this.handlePlay}>
-                <i className={`fas fa-play ${playing}`}></i>
+                <i className={`fas fa-play music-player-play ${playing}`}></i>
                 <i className={`fas fa-pause ${paused}`}></i>
               </div>
               <i className="fas fa-step-forward"></i>

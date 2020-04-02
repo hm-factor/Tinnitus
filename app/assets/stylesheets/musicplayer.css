@@ -85,7 +85,7 @@
   border-radius: 500px;
 }
 
-.fa-play, .fa-pause {
+.music-player-play, .fa-pause {
   font-size: 14px;
 }
 
@@ -93,7 +93,7 @@
   margin: 0 10px;
 }
 
-#play-pause .fa-play {
+#play-pause .music-player-play {
   margin-right: 9px;
   margin-left: 11px;
 }

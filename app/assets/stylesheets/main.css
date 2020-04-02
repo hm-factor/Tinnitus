@@ -230,7 +230,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 32px;
+  height: 33px;
 }
 
 .playlist-item-title {
@@ -247,24 +247,27 @@
 
 .playlist-item-play {
   display: none;
-  background-color: transparent;
-  padding: 8px 0;
-  border: 1px solid #b3b3b3;
+  background-color: darkslateblue;
+  padding: 10px 0;
+  border: none;
   border-radius: 500px;
   margin-right: 20px;
-  color: #b3b3b3;
   outline: none;
 }
 
 .playlist-btn-icon {
-  margin: 0 8px 0 10px;
+  font-size: 12px;
+  margin: 0 10px 0 12px;
+  color: #b3b3b3;
 }
 
 .playlist-items:hover .playlist-item-play {
   display: block;
-  border: 1px solid #ffffff;
+  border: none;
 }
 
 .playlist-item-play:hover {
   color: #b3b3b3;
+  transform: scale(1.05);
+  cursor: pointer;
 }
