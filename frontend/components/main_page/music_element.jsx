@@ -37,16 +37,16 @@ export default class MusicElement extends React.Component {
       let {albums} = this.props;
       albumLis = Object.keys(albums).map( albumId => {
         return (
-          <div className="playlist-items" key={albumId}>
-            <div className="playlist-item-graphic">
-              <i className="fas fa-deaf playlist-item-deaf"></i>
+          <div className="albums-items" key={albumId}>
+            <div className="albums-item-graphic">
+              <i className="fas fa-deaf albums-item-deaf"></i>
             </div>
-            <div className="playlist-item-bottom">
-              <NavLink to={`/albums/${albumId}`} className="playlist-item-title">
+            <div className="albums-item-bottom">
+              <NavLink to={`/albums/${albumId}`} className="albums-item-title">
                 {albums[albumId].title}
               </NavLink>
-              <button onClick={this.props.playSong} className="playlist-item-play">
-                <i className="fas fa-play playlist-btn-icon"></i>
+              <button onClick={this.props.playSong} className="albums-item-play">
+                <i className="fas fa-play albums-btn-icon"></i>
               </button>
             </div>
           </div>
@@ -60,9 +60,9 @@ export default class MusicElement extends React.Component {
           <div className="playlist-item-container-title">Your Playlists</div>
           <div className="playlist-item-row">{playlistLis}</div>
         </div>
-        <div className="playlist-items-container">
-          <div className="playlist-item-container-title">Albums</div>
-          <div className="playlist-item-row">{albumLis}</div>
+        <div className="albums-items-container">
+          <div className="albums-item-container-title">Albums</div>
+          <div className="albums-item-row">{albumLis}</div>
         </div>
       </div>
     );
