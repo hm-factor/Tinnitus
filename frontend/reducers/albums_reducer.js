@@ -5,11 +5,13 @@ import {
 
 const albumsReducer = (state = {}, action) => {
   Object.freeze(state);
+  let newState = Object.assign({}, state);
   switch (action.type) {
     case RECEIVE_ALBUMS:
-      return action.albums;
+      return Object.assign({}, state, action.albums);
     case RECEIVE_ALBUM:
-      return Object.assign({}, state, { [action.album.id]: action.album })
+      newState[action.album.id] = action.album;
+      return newState;
     default:
       return state;
   }

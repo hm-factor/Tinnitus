@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import NavBarContainer from "../nav_bar/nav_bar_container";
 import SideBarContainer from '../side_bar/side_bar_container';
 import MusicPlayerContainer from '../music_player/music_player_container';
+import { fetchAlbums } from "../../actions/album_actions";
 
 import { Route, Link, Switch } from 'react-router-dom';
 import { ProtectedRoute, AuthRoute } from '../../util/route_util';
@@ -13,6 +14,12 @@ import MusicElementContainer from "./music_element_container";
 
 const msp = (state) => {
   return{};
+}
+
+const mdp = dispatch => {
+  return {
+    fetchAlbums: albums => dispatch(fetchAlbums(albums))
+  }
 }
 
 class MainPageContainer extends React.Component {
@@ -29,6 +36,7 @@ class MainPageContainer extends React.Component {
   // }
 
   componentDidMount() {
+    this.props.fetchAlbums();
     this.updateWindowDimensions();
     window.addEventListener('resize', this.updateWindowDimensions);
   }
@@ -82,4 +90,4 @@ class MainPageContainer extends React.Component {
   }
 }
 
-export default connect(msp, null)(MainPageContainer);
+export default connect(msp, mdp)(MainPageContainer);
