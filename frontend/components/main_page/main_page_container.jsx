@@ -8,6 +8,7 @@ import { fetchAlbums } from "../../actions/album_actions";
 import { Route, Link, Switch } from 'react-router-dom';
 import { ProtectedRoute, AuthRoute } from '../../util/route_util';
 import PlaylistShowContainer from "../music/playlist_show_container";
+import AlbumShowContainer from '../music/album_show_container';
 import MusicElementContainer from "./music_element_container";
 
 // import SongIndexContainer from '../../components/music/song_index_container';
@@ -66,19 +67,20 @@ class MainPageContainer extends React.Component {
           <div className="side-bar">
             <div className="side-bar-nav">
               <SideBarContainer />
-              {/* <Route to='/' component={SideBarContainer} /> */}
             </div>
           </div>
           <div className="main-right">
             <div className="nav-cont">
               <NavBarContainer />
-              {/* <Route to='/' component={NavBarContainer} /> */}
             </div>
             <div>
               <Route exact path="/" component={MusicElementContainer} />
             </div>
             <div className="playlist-show" style={rightStyle}>
-              <Route path="/playlists/:id" component={PlaylistShowContainer} />
+              <Switch >
+                <Route path="/playlists/:id" component={PlaylistShowContainer} />
+                <Route path="/albums/:id" component={AlbumShowContainer} />
+              </Switch>
             </div>
           </div>
         </div>
