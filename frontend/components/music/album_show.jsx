@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect } from "react-router-dom";
+import SongElementContainer from './song_element_container';
 
 class AlbumShow extends React.Component {
   constructor(props) {
@@ -9,7 +10,32 @@ class AlbumShow extends React.Component {
   render() {
     let { album, songs, user } = this.props;
     if (!album) return <Redirect to='/' />;
-
+    const albumSongLis = Object.values(songs).map( song => {
+      if (song.album_id === album.id) {
+        return (
+          <li
+            key={song.id}
+            className="song-li"
+            onClick={() => this.props.playSong(song)}
+          >
+            <div className="song-li-left">
+              <div className="song-li-note">
+                <i className="fas fa-music"></i>
+              </div>
+              <SongElementContainer id={song.id} />
+            </div>
+            <div className="song-li-right">
+              <div className="song-li-options">
+                <div className="song-li-ellipsis">
+                  <i className="fas fa-ellipsis-h"></i>
+                </div>
+                <div className="song-li-time">0:00</div>
+              </div>
+            </div>
+          </li>
+        );
+      }
+    })
 
     return (
       <div className="playlist-show-page">
@@ -22,7 +48,7 @@ class AlbumShow extends React.Component {
           <button className="playlist-play-btn">PLAY</button>
         </div>
         <div className="playlist-show-right">
-          <ul className="playlist-show-ul">ok</ul>
+          <ul className="playlist-show-ul">{albumSongLis}</ul>
         </div>
       </div>
     );
