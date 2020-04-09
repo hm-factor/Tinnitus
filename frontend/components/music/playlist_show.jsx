@@ -17,7 +17,7 @@ class PlaylistShow extends React.Component {
             <div className="song-li-note">
               <i className="fas fa-music"></i>
             </div>
-              <SongElementContainer id={song.id}/>
+              <SongElementContainer id={song.id} />
           </div>
           <div className="song-li-right">
             <div className="song-li-options">

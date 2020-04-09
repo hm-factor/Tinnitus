@@ -15,10 +15,11 @@ class Api::PlaylistsController < ApplicationController
     end
   end
 
-  def add
+  def add_song
+    debugger
     @playlist = current_user.playlists.find(params[:id])
     song = Song.find(params[:songId])
-
+    debugger
     if @playlist
       @playlist.add_song(song)
       render :show

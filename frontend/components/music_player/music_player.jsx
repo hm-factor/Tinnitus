@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { formatTime } from '../../util/song_time_util';
 
 class MusicPlayer extends React.Component {
   constructor(props) {
@@ -21,8 +22,10 @@ class MusicPlayer extends React.Component {
     let audioUnit = document.getElementById('audio');
     this.props.isPlaying ? audioUnit.pause() : audioUnit.play();
     this.props.togglePlay();
+
+    let newTime = formatTime(audioUnit.duration);
     this.setState({
-      songTime: audioUnit.duration
+      songTime: newTime
     })
   };
 

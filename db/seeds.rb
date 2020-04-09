@@ -170,6 +170,8 @@ song_1_15.song_file.attach(io: song_file_1_15, filename:'15+John+L+(Constellatio
 song_file_1_16 = open('https://tinnitus-seeds.s3.amazonaws.com/16+bmbmbm+Ft.+Fat+Tony+(Warsaw%2C+Brooklyn).mp3')
 song_1_16.song_file.attach(io: song_file_1_16, filename:'16+bmbmbm+Ft.+Fat+Tony+(Warsaw%2C+Brooklyn).mp3')
 
+
+demoPlaylist.add_song(song_1_7)
 # post = Post.first
 # file = File.open('app/assets/images/sennacy.jpg')
 # post.photo.attach(io: file, filename: 'sennacy.jpg')
