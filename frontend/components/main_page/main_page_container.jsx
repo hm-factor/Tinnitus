@@ -4,6 +4,7 @@ import NavBarContainer from "../nav_bar/nav_bar_container";
 import SideBarContainer from '../side_bar/side_bar_container';
 import MusicPlayerContainer from '../music_player/music_player_container';
 import { fetchAlbums } from "../../actions/album_actions";
+import { fetchArtists } from "../../actions/artist_actions";
 
 import { Route, Link, Switch } from 'react-router-dom';
 import { ProtectedRoute, AuthRoute } from '../../util/route_util';
@@ -19,7 +20,8 @@ const msp = (state) => {
 
 const mdp = dispatch => {
   return {
-    fetchAlbums: albums => dispatch(fetchAlbums(albums))
+    fetchAlbums: albums => dispatch(fetchAlbums(albums)),
+    fetchArtists: artists => dispatch(fetchArtists(artists))
   }
 }
 
@@ -38,6 +40,7 @@ class MainPageContainer extends React.Component {
 
   componentDidMount() {
     this.props.fetchAlbums();
+    this.props.fetchArtists();
     this.updateWindowDimensions();
     window.addEventListener('resize', this.updateWindowDimensions);
   }

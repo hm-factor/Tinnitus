@@ -17,12 +17,12 @@ const receiveArtist = artist => {
   };
 };
 
-export const fetchArtists = artists => {
+export const fetchArtists = artists => dispatch => {
   return artistUtil.fetchArtists(artists)
     .then( artists => dispatch(receiveArtists(artists)));
 };
 
-export const fetchArtist = artistId => {
+export const fetchArtist = artistId => dispatch => {
   return artistUtil.fetchArtist(artistId)
     .then( artist => dispatch(receiveArtist(artist)));
 };
