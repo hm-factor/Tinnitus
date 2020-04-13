@@ -28,7 +28,7 @@ class Playlist < ApplicationRecord
     debugger
   end
 
-  def playlist_songs
-    songs.all
-  end
+  # def playlist_songs
+  #   songs.all
+  # end
 end

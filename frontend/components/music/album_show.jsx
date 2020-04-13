@@ -5,6 +5,25 @@ import SongElementContainer from './song_element_container';
 class AlbumShow extends React.Component {
   constructor(props) {
     super(props);
+
+    this.playAlbum = this.playAlbum.bind(this);
+  }
+
+  playAlbum() {
+    debugger;
+    let { album, songs, playSong, setQueue } = this.props;
+
+    let newQueue = [];
+    Object.values(songs).forEach( song => {
+      if (song.album_id === album.id) {
+        newQueue.push(song)
+      };
+    });
+
+    let newCurrent = newQueue.shift();
+
+    playSong(newCurrent);
+    setQueue(newQueue);
   }
 
   render() {
@@ -45,7 +64,7 @@ class AlbumShow extends React.Component {
           </div>
           <p className="playlist-title">{album.title}</p>
           <p className="playlist-author">by: {album.artist_id}</p>
-          <button className="playlist-play-btn">PLAY</button>
+          <button className="playlist-play-btn" onClick={this.playAlbum}>PLAY</button>
         </div>
         <div className="playlist-show-right">
           <ul className="playlist-show-ul">{albumSongLis}</ul>
