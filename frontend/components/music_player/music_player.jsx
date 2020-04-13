@@ -13,8 +13,9 @@ class MusicPlayer extends React.Component {
     }
 
     this.handlePlay = this.handlePlay.bind(this);
-    this.handleLike= this.handleLike.bind(this);
-    this.handleMute= this.handleMute.bind(this);
+    this.handleLike = this.handleLike.bind(this);
+    this.handleMute = this.handleMute.bind(this);
+    this.playNext = this.playNext.bind(this)
   };
 
   handlePlay(e) {
@@ -41,6 +42,19 @@ class MusicPlayer extends React.Component {
     });
   };
 
+  playNext() {
+    let { currentSong, songQueue, playSong, togglePlay, setQueue } = this.props;
+
+    if (songQueue.length) {
+      let newSong = songQueue.shift();
+      let newQueue = songQueue;
+      playSong(newSong);
+      setQueue(newQueue);
+    } else {
+      togglePlay();
+    };
+  };
+
   render () {
     let { likeClicked, muteClicked } = this.state;
     let { isPlaying, currentSong } = this.props;
@@ -56,13 +70,9 @@ class MusicPlayer extends React.Component {
 
     let songStart = '0:00';
 
-    if (this.props.currentSong) {
-      
-    }
-
     return (
       <div className="musicplayer">
-        <audio id="audio" src={currentSong.songUrl} autoPlay>
+        <audio id="audio" src={currentSong.songUrl} onEnded={this.playNext} autoPlay>
           Your browser does not support html Audio elements
         </audio>
         <div className="left-side-musicplayer">
@@ -86,7 +96,7 @@ class MusicPlayer extends React.Component {
               <i className={`fas fa-play music-player-play ${playing}`}></i>
               <i className={`fas fa-pause ${paused}`}></i>
             </div>
-            <i className="fas fa-step-forward"></i>
+            <i className="fas fa-step-forward" onClick={this.playNext}></i>
             <button id="redo-btn">
               <i className="fas fa-redo-alt"></i>
             </button>
