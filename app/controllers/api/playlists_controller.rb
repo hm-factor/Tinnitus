@@ -5,6 +5,7 @@ class Api::PlaylistsController < ApplicationController
   end 
 
   def create
+
     @playlist = current_user.playlists.new(playlist_params)
     @playlist.privacy = false
 
@@ -16,10 +17,10 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def add_song
-    debugger
+
     @playlist = current_user.playlists.find(params[:id])
     song = Song.find(params[:songId])
-    debugger
+
     if @playlist
       @playlist.add_song(song)
       render :show

@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import PlaylistDropdown from './playlist_dropdown_container';
+// import PlaylistDropdown from './playlist_dropdown_container';
 import { PlaylistShowContainer } from '../../components/music/playlist_show_container';
 
 class PlaylistScroll extends React.Component {
@@ -19,6 +19,7 @@ class PlaylistScroll extends React.Component {
 
   handleRightClick(e) {
     e.preventDefault();
+    e.stopPropagation();
 
     this.setState({
       hidden: !this.state.hidden,
@@ -52,12 +53,12 @@ class PlaylistScroll extends React.Component {
         >
           <li className="playlist-li">
             {playlists[playlistId].title}
-            <PlaylistDropdown
+            {/* <PlaylistDropdown
               playlistId={playlistId}
               hidden={this.state.hidden}
               dropX={this.state.dropX}
               dropY={this.state.dropY}
-            />
+            /> */}
           </li>
         </NavLink>
       );

@@ -12,6 +12,7 @@ const recievePlaylists = playlists => {
 };
 
 const recievePlaylist = playlist => {
+  debugger;
   return {
     type: RECEIVE_PLAYLIST,
     playlist

@@ -56,6 +56,10 @@ class MusicPlayer extends React.Component {
 
     let songStart = '0:00';
 
+    if (this.props.currentSong) {
+      
+    }
+
     return (
       <div className="musicplayer">
         <audio id="audio" src={currentSong.songUrl} autoPlay>
