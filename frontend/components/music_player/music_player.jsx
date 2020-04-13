@@ -40,10 +40,17 @@ class MusicPlayer extends React.Component {
     this.setState({
       muteClicked: !this.state.muteClicked
     });
+
+    let audioUnit = document.getElementById("audio");
+    if (audioUnit.volume === 0) {
+      audioUnit.volume = 1
+    } else {
+      audioUnit.volume = 0
+    };
   };
 
   playNext() {
-    let { currentSong, songQueue, playSong, togglePlay, setQueue } = this.props;
+    let { pauseSong, songQueue, playSong, togglePlay, setQueue } = this.props;
 
     if (songQueue.length) {
       let newSong = songQueue.shift();
@@ -52,6 +59,7 @@ class MusicPlayer extends React.Component {
       setQueue(newQueue);
     } else {
       togglePlay();
+      playSong({});
     };
   };
 
