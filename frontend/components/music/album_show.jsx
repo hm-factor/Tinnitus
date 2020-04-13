@@ -10,7 +10,6 @@ class AlbumShow extends React.Component {
   }
 
   playAlbum() {
-    debugger;
     let { album, songs, playSong, setQueue } = this.props;
 
     let newQueue = [];
