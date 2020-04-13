@@ -24,7 +24,7 @@ class PlaylistShow extends React.Component {
               <div className="song-li-ellipsis">
                 <i className="fas fa-ellipsis-h"></i>
               </div>
-              <div className="song-li-time">0:00</div>
+              <div className="song-li-time">{song.duration}</div>
             </div>
           </div>
         </li>

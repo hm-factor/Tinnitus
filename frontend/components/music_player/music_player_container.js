@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import MusicPlayer from './music_player';
-import { playSong, pauseSong, togglePlay, setQueue } from '../../actions/music_player_actions';
+import { playSong, pauseSong, togglePlay, setQueue, setTime } from '../../actions/music_player_actions';
 
 const msp = ({musicPlayer}) => {
   let {
@@ -25,7 +25,8 @@ const mdp = dispatch => {
     playSong: (song) => dispatch(playSong(song)),
     pauseSong: () => dispatch(pauseSong()),
     togglePlay: () => dispatch(togglePlay()),
-    setQueue: (queue) => dispatch(setQueue(queue))
+    setQueue: (queue) => dispatch(setQueue(queue)),
+    setTime: (time) => dispatch(setTime(time))
   }
 };
 

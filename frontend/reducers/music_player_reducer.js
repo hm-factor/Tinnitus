@@ -1,6 +1,7 @@
 import {
   PLAY_SONG,
   SET_QUEUE,
+  SET_TIME,
   PAUSE_SONG,
   TOGGLE
 } from '../actions/music_player_actions';
@@ -8,7 +9,7 @@ import {
 const emptyState = {
   currentSong: {},
   isPlaying: false,
-  songTime: 0,
+  songTime: '0:00',
   songQueue: [],
   songHistory: []
 };
@@ -20,7 +21,6 @@ const musicPlayerReducer = (state = emptyState, action) => {
     case PLAY_SONG:
       newState.currentSong = action.song;
       newState.isPlaying = true;
-      newState.songTime = action.song.duration;
       newState.songHistory.push(action.song.id);
       return newState;
     case PAUSE_SONG:
@@ -31,6 +31,9 @@ const musicPlayerReducer = (state = emptyState, action) => {
       return newState;
     case SET_QUEUE:
       newState.songQueue = action.queue;
+      return newState;
+    case SET_TIME:
+      newState.songTime = action.time;
       return newState;
     default:
       return state;

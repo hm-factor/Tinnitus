@@ -8,14 +8,14 @@ class MusicPlayer extends React.Component {
     this.state = {
       isPlaying: this.props.isPlaying,
       likeClicked: false,
-      muteClicked: false,
-      songTime: '0:00'
+      muteClicked: false
     }
 
     this.handlePlay = this.handlePlay.bind(this);
     this.handleLike = this.handleLike.bind(this);
     this.handleMute = this.handleMute.bind(this);
-    this.playNext = this.playNext.bind(this)
+    this.playNext = this.playNext.bind(this);
+    this.updateTime = this.updateTime.bind(this);
   };
 
   handlePlay(e) {
@@ -25,9 +25,7 @@ class MusicPlayer extends React.Component {
     this.props.togglePlay();
 
     let newTime = formatTime(audioUnit.duration);
-    this.setState({
-      songTime: newTime
-    })
+    this.props.setTime(newTime);
   };
 
   handleLike(e) {
@@ -35,6 +33,12 @@ class MusicPlayer extends React.Component {
       likeClicked: !this.state.likeClicked
     });
   };
+
+  updateTime() {
+    let audioUnit = document.getElementById("audio");
+    let newTime = formatTime(audioUnit.duration);
+    this.props.setTime(newTime);
+  }
 
   handleMute(e) {
     this.setState({
@@ -65,7 +69,7 @@ class MusicPlayer extends React.Component {
 
   render () {
     let { likeClicked, muteClicked } = this.state;
-    let { isPlaying, currentSong } = this.props;
+    let { isPlaying, currentSong, songTime } = this.props;
 
     let playing = isPlaying ? "hidden" : "";
     let paused = isPlaying ? "" : "hidden";
@@ -77,10 +81,18 @@ class MusicPlayer extends React.Component {
     let muted = muteClicked ? "" : "hidden";
 
     let songStart = '0:00';
+    if (!songTime) {
+      songTime = '0:00'
+    };
 
     return (
       <div className="musicplayer">
-        <audio id="audio" src={currentSong.songUrl} onEnded={this.playNext} autoPlay>
+        <audio 
+          id="audio" 
+          src={currentSong.songUrl} 
+          onEnded={this.playNext} 
+          onCanPlay={this.updateTime} 
+          autoPlay>
           Your browser does not support html Audio elements
         </audio>
         <div className="left-side-musicplayer">
@@ -118,7 +130,7 @@ class MusicPlayer extends React.Component {
               className="progress-slider"
             /> */}
             <progress max="100" className="progress-slider"></progress>
-            <p className="play-time">{this.state.songTime}</p>
+            <p className="play-time">{songTime}</p>
           </div>
         </div>
 

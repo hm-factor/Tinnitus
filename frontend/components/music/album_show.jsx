@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect } from "react-router-dom";
 import SongElementContainer from './song_element_container';
+import { formatTime } from '../../util/song_time_util'
 
 class AlbumShow extends React.Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class AlbumShow extends React.Component {
   }
 
   playAlbum() {
-    let { album, songs, playSong, setQueue } = this.props;
+    let { album, songs, playSong, setQueue, setTime } = this.props;
 
     let newQueue = [];
     Object.values(songs).forEach( song => {
@@ -20,10 +21,10 @@ class AlbumShow extends React.Component {
     });
 
     let newCurrent = newQueue.shift();
-
+    
     playSong(newCurrent);
     setQueue(newQueue);
-  }
+  };
 
   render() {
     let { album, songs, user } = this.props;
