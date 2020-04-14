@@ -21,7 +21,13 @@ const musicPlayerReducer = (state = emptyState, action) => {
     case PLAY_SONG:
       newState.currentSong = action.song;
       newState.isPlaying = true;
-      newState.songHistory.push(action.song.id);
+      let songIdx = newState.songHistory.indexOf(action.song.id);
+      if (songIdx === -1) {
+        newState.songHistory.push(action.song.id);
+      } else if (typeof(songIdx) !== undefined) {
+        newState.songHistory.splice(1, songIdx);
+        newState.songHistory.push(action.song.id);
+      };
       return newState;
     case PAUSE_SONG:
       newState.isPlaying = false;

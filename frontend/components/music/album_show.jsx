@@ -1,7 +1,6 @@
 import React from 'react';
 import { Redirect } from "react-router-dom";
 import SongElementContainer from './song_element_container';
-import { formatTime } from '../../util/song_time_util'
 
 class AlbumShow extends React.Component {
   constructor(props) {
