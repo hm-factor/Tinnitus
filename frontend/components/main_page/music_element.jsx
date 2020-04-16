@@ -13,6 +13,9 @@ export default class MusicElement extends React.Component {
     let playlistLis;
     let albumLis;
 
+    // let itemContWidth = 0.8 * (window.width - 90);
+    // let contStyle = 'width:' + itemContWidth.toString() + 'px';
+
     if (authoredPlaylists) {
       playlistLis = authoredPlaylists.map( playlistId => {
         return (
