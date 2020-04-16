@@ -1,16 +1,18 @@
 import SongElement from './song_element';
-import { connect } from 'react-redux';
+import { connect, useStore } from 'react-redux';
+import { addSongToPlaylist } from '../../actions/playlist_actions';
 
 const msp = (state) => {
   return {
-    song: state.entities.songs
+    songs: state.entities.songs,
+    playlistIds: state.entities.users.playlists
   };
 };
 
-// const mdp = dispatch => {
-//   return {
-//     playSong: song => dispatch(playSong(song))
-//   }
-// }
+const mdp = dispatch => {
+  return {
+    addSongToPlaylist: songId => dispatch(addSongToPlaylist(playlistId, songId))
+  }
+}
 
-export default connect(msp, null)(SongElement);
+export default connect(msp, mdp)(SongElement);

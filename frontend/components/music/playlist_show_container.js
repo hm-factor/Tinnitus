@@ -6,6 +6,7 @@ import { playSong } from '../../actions/music_player_actions';
 const msp = (state, ownProps) => {
   return {
     playlist: state.entities.playlists[ownProps.match.params.id],
+    id: ownProps.match.params.id,
     songs: state.entities.songs,
     user: state.entities.users[state.session.currentUserId]
   };

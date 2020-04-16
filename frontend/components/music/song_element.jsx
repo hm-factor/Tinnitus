@@ -1,4 +1,5 @@
 import React from 'react';
+import AddSongElement from './add_song_element_container';
 
 export default class SongElement extends React.Component {
   constructor(props) {
@@ -6,11 +7,22 @@ export default class SongElement extends React.Component {
   };
 
   render () {
-    const { song, id } = this.props;
+    let { songs, id, playlistIds } = this.props;
+    let playlistIdList = playlistIds.map( playlistId => {
+      return (
+        <li key={playlistId}> 
+          <AddSongElement songId={songs[id]} playlistId={playlistId} />
+        </li>
+      )
+    })
+
     return (
       <div className="song-info">
-        <div className="song-li-title">{song[id].title}</div>
-        <div className="song-li-artist">{song[id].artist_id}</div>
+        <div className="song-li-title">{songs[id].title}</div>
+        <div className="song-li-artist">{songs[id].artist_id}</div>
+        <ul>
+          {playlistIdList}
+        </ul>
       </div>
     );
   }
