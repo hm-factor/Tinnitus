@@ -24,11 +24,11 @@ class Playlist < ApplicationRecord
   validates :privacy, inclusion: { in: [true, false] }
 
   def add_song(song)
-    self.playlist_songs.create({id: song.id})
     debugger
+    self.playlist_songs.create(song_id: song.id)
   end
 
-  # def playlist_songs
-  #   songs.all
-  # end
+  def songs
+    playlist_songs.all
+  end
 end

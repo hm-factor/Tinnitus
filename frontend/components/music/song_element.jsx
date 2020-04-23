@@ -11,7 +11,7 @@ export default class SongElement extends React.Component {
     let playlistIdList = playlistIds.map( playlistId => {
       return (
         <li key={playlistId}> 
-          <AddSongElement songId={songs[id]} playlistId={playlistId} />
+          <AddSongElement song={songs[id]} playlistId={playlistId} />
         </li>
       )
     })

@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import { addSongToPlaylist } from '../../actions/playlist_actions';
 
 const AddSongElement = (props) => {
-  let { songId, playlistId } = props
+  let { song, playlistId } = props
 
   const handleClick = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    props.addSongToPlaylist(songId, playlistId);
+    let songId = song.id;
+    props.addSongToPlaylist(playlistId, songId);
   };
     
   return (
@@ -21,7 +22,7 @@ const AddSongElement = (props) => {
 
 const mdp = dispatch => {
   return {
-    addSongToPlaylist: (playlistId, songId) => dispatch(addSongToPlaylist(playlistId, songId))
+    addSongToPlaylist: (playlistId, song) => dispatch(addSongToPlaylist(playlistId, song))
   }
 }
 
