@@ -28,7 +28,6 @@ export const fetchAuthoredPlaylists = authorId => {
 }
 
 export const addSongToPlaylist = (playlistId, songId) => {
-  debugger;
   return $.ajax({
     method: 'POST',
     url: `/api/playlists/${playlistId}/songs`,
