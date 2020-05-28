@@ -15,12 +15,9 @@ class PlaylistShow extends React.Component {
     if (playlist.songs) {
       songLis = playlist.songs.map( (song, idx) => {
         return (
-          <li key={idx} className="song-li" onClick={() => this.props.playSong(song)}>
-            <div className="song-li-left">
-              <div className="song-li-note">
-                <i className="fas fa-music"></i>
-              </div>
-                <SongElementContainer id={song.song_id} />
+          <li key={idx} className="song-li-el" onClick={() => this.props.playSong(song)}>
+            <div>
+              <SongElementContainer id={song.song_id} />
             </div>
           </li>
         );

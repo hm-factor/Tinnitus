@@ -8,7 +8,9 @@ export default class SongElement extends React.Component {
   };
 
   render () {
-    let { songs, id, playlistIds } = this.props;
+    let { songs, id, playlistIds, artists } = this.props;
+    let artistId = songs[id].artist_id;
+    let artist = artists[artistId]
     let playlistIdList = playlistIds.map( playlistId => {
       return (
         <li key={playlistId}> 
@@ -25,8 +27,10 @@ export default class SongElement extends React.Component {
           <div className="song-li-note">
             <i className="fas fa-music"></i>
           </div>
-          <div className="song-li-title">{songs[id].title}</div>
-          <div className="song-li-artist">{songs[id].artist_id}</div>
+          <div className="song-info">
+            <div className="song-li-title">{songs[id].title}</div>
+            <div className="song-li-artist">{artist.name}</div>
+          </div>
         </div>
         {/* <ul>{playlistIdList}</ul> */}
         <div className="song-li-right">

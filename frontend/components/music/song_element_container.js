@@ -5,7 +5,8 @@ import { addSongToPlaylist } from '../../actions/playlist_actions';
 const msp = (state) => {
   return {
     songs: state.entities.songs,
-    playlistIds: state.entities.users.playlists
+    playlistIds: state.entities.users.playlists,
+    artists: state.entities.artists
   };
 };
 

@@ -36,7 +36,7 @@ class AlbumShow extends React.Component {
             className="song-li-el"
             onClick={() => this.props.playSong(song)}
           >
-            <div >
+            <div>
               <SongElementContainer id={song.id} />
             </div>
           </li>
