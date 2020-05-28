@@ -10,14 +10,22 @@ class PlaylistShow extends React.Component {
   render () {
     const { playlist, songs, user, deletePlaylist } = this.props;
     if (!playlist) return <Redirect to="/" />;
+    let playlistSongs = Object.values(playlist.songs).map( song => {
+      return song.song_id;
+    });
     let songLis;
 
     if (playlist.songs) {
-      songLis = playlist.songs.map( (song, idx) => {
+      songLis = playlistSongs.map( (songId, idx) => {
+        let song = songs[songId];
         return (
-          <li key={idx} className="song-li-el" onClick={() => this.props.playSong(song)}>
+          <li 
+            key={idx} 
+            className="song-li-el" 
+            onClick={() => this.props.playSong(song)}
+          >
             <div>
-              <SongElementContainer id={song.song_id} />
+              <SongElementContainer id={song.id} />
             </div>
           </li>
         );
