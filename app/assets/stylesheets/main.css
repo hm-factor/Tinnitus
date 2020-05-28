@@ -149,6 +149,7 @@
 .song-li-artist {
   font-size: 14px;
   color: grey;
+  margin-top: 3px;
 }
 
 .song-li-note, .song-li-ellipsis {

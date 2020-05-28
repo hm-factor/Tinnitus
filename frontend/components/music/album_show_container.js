@@ -6,7 +6,8 @@ const msp = (state, ownProps) => {
   return {
     album: state.entities.albums[ownProps.match.params.id],
     songs: state.entities.songs,
-    user: state.entities.users[state.session.currentUserId]
+    user: state.entities.users[state.session.currentUserId],
+    artists: state.entities.artists
   };
 };
 

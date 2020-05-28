@@ -26,8 +26,11 @@ class AlbumShow extends React.Component {
   };
 
   render() {
-    let { album, songs, user } = this.props;
+    let { album, songs, user, artists } = this.props;
     if (!album) return <Redirect to='/' />;
+
+    let artistId = album.artist_id;
+    let artist = artists[artistId].name;
     const albumSongLis = Object.values(songs).map( song => {
       if (song.album_id === album.id) {
         return (
@@ -51,7 +54,7 @@ class AlbumShow extends React.Component {
             <i className="fas fa-deaf"></i>
           </div>
           <p className="playlist-title">{album.title}</p>
-          <p className="playlist-author">by: {album.artist_id}</p>
+          <p className="playlist-author">{artist}</p>
           <button className="playlist-play-btn" onClick={this.playAlbum}>PLAY</button>
         </div>
         <div className="playlist-show-right">
