@@ -128,10 +128,10 @@
   transition: background-color 0.1s ease-out;
 }
 
-.song-info {
+/* .song-info {
   display: flex;
   justify-content: space-between;
-}
+} */
 
 .song-li-left {
   display: flex;

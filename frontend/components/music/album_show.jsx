@@ -33,22 +33,11 @@ class AlbumShow extends React.Component {
         return (
           <li
             key={song.id}
-            className="song-li"
+            className="song-li-el"
             onClick={() => this.props.playSong(song)}
           >
-            <div className="song-li-left">
-              <div className="song-li-note">
-                <i className="fas fa-music"></i>
-              </div>
+            <div >
               <SongElementContainer id={song.id} />
-            </div>
-            <div className="song-li-right">
-              <div className="song-li-options">
-                <div className="song-li-ellipsis">
-                  <i className="fas fa-ellipsis-h"></i>
-                </div>
-                <div className="song-li-time">0:00</div>
-              </div>
             </div>
           </li>
         );
